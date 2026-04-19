@@ -58,6 +58,10 @@ in
 
   services.printing.enable = true;
 
+  services.power-profiles-daemon.enable = false;
+  services.tuned.enable = true;
+  services.upower.enable = true;
+
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -105,6 +109,29 @@ in
   ];
 
   programs.neovim.defaultEditor = true;
+
+  # Graphics Drivers - NVIDIA
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "amdgpu"
+  ];
+  hardware = {
+    graphics.enable = true;
+    nvidia = {
+      open = true;
+      modesetting.enable = true;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        nvidiaBusId = "PCI:1:0:0";
+        amdgpuBusId = "PCI:5:0:0";
+      };
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
