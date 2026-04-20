@@ -40,7 +40,7 @@
   programs.hyprshot = {
     enable = true;
     package = pkgs.hyprshot;
-    saveLocation = "~/Pictures/Screenshots";
+    saveLocation = "/home/dog/Pictures/Screenshots";
   };
 
   services.hyprpaper = {
