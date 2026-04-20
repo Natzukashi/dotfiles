@@ -43,12 +43,12 @@
     saveLocation = "~/Pictures/Screenshots";
   };
 
-  programs.hyprpaper = {
+  services.hyprpaper = {
     enable = true;
     package = pkgs.hyprpaper;
     settings = {
       ipc = "on";
-      space = false;
+      splash = false;
 
       preload = [
         "~/dotfiles/config/Wallpapers/cat_vending_machine.png"
