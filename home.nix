@@ -40,6 +40,8 @@
     })
   ];
 
+  programs.hyprshot.saveLocation = "/home/dog/Pictures/Screenshots";
+
   programs.bash = {
     enable = true;
     shellAliases = {
