@@ -9,6 +9,7 @@
     floorp-bin
     nil
     ripgrep
+    wlogout
     waybar
     neovim
     hyprpaper
