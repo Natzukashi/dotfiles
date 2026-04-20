@@ -7,7 +7,7 @@
 
   home.packages = with pkgs; [
     floorp-bin
-    rofi-emoji
+    rofimoji
     nil
     ripgrep
     hyprshot
