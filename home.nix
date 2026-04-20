@@ -12,6 +12,7 @@
     waybar
     neovim
     hyprpaper
+    hypridle
     kdePackages.dolphin
     rofi
     tree
@@ -40,7 +41,7 @@
     enable = true;
     shellAliases = {
       v = "nvim";
-      nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/$tsuwabuki";
+      nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/$tsuwabuki --impure";
     };
     initExtra = ''
       PS1='\[\e[38;2;122;168;159m\]\u\[\e[38;2;114;113;105m\]@\[\e[38;2;126;156;216m\]\h\[\e[38;2;84;84;109m\] in \[\e[38;2;230;195;132m\]\w\[\e[38;2;118;148;106m\] \$\[\e[0m\] '
