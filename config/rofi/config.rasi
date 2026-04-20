@@ -10,7 +10,6 @@ configuration{
     display-drun: " ";
     display-run: " ";
     display-window: " ";
-    dpi: 140;
     
     //fixing up
     kb-remove-to-eol: "";
