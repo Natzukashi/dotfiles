@@ -5,6 +5,16 @@
   home.homeDirectory = "/home/dog";
   home.stateVersion = "25.11";
 
+  home.packages = with pkgs; [
+    bat
+    floorp-bin
+    alacritty
+    fastfetch
+    tree
+    neovim
+    nil
+  ];
+
   programs.bash = {
     enable = true;
     shellAliases = {
@@ -51,8 +61,4 @@
   '';
 
   home.file.".config/nvim".source = /home/dog/dotfiles/nvim;
-
-  home.packages = with pkgs; [
-    bat
-  ];
 }

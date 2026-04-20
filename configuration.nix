@@ -5,7 +5,7 @@ let
 in
 {
   imports = [
-    ./hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix
     (import "${home-manager}/nixos")
   ];
 
@@ -20,6 +20,7 @@ in
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "tsuwabuki"; # Define your hostname.
+  hardware.bluetooth.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -27,6 +28,8 @@ in
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   networking.networkmanager.enable = true;
+
+  nix.settings.experimental-features = [ "nix-command" ];
 
   time.timeZone = "Asia/Kolkata";
 
@@ -79,6 +82,7 @@ in
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    adwaita-fonts
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -90,12 +94,7 @@ in
       "wheel"
     ];
     packages = with pkgs; [
-      floorp-bin
-      alacritty
-      fastfetch
-      tree
-      neovim
-      nil
+      # put packages in home.nix
     ];
   };
 
