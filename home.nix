@@ -40,7 +40,10 @@
     })
   ];
 
-  programs.hyprshot.saveLocation = "/home/dog/Pictures/Screenshots";
+  programs.hyprshot = {
+    enable = true;
+    saveLocation = "/home/dog/Pictures/Screenshots";
+  };
 
   programs.bash = {
     enable = true;
