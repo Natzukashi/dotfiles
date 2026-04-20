@@ -1,6 +1,6 @@
 configuration{
     modi: ["drun", "window", "run", "emoji:rofimoji"];
-    icon-theme: "Papirus";
+    icon-theme: "hicolor";
     show-icons: true;
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
