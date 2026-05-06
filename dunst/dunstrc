@@ -30,7 +30,7 @@
     horizontal_padding = 14
     text_icon_padding = 12
     frame_width = 3
-    frame_color = "#7aa2f7"       # default: tokyonight magenta
+    frame_color = "#D282AF"       # default: tokyonight magenta
     separator_color = frame
     corner_radius = 10
 
@@ -83,21 +83,21 @@
 #  TokyoNight Storm full palette:
 #    bg:       #24283b   bg_dark:  #1f2335
 #    fg:       #c0caf5   comment:  #565f89
-#    blue:     #7aa2f7   cyan:     #7dcfff
+#    blue:     #D282AF   cyan:     #7dcfff
 #    green:    #9ece6a   yellow:   #e0af68
 #    orange:   #ff9e64   red:      #f7768e
 #    magenta:  #bb9af7   teal:     #1abc9c
 # ─────────────────────────────────────────────
 [urgency_low]
     background = "#24283b"
-    foreground = "#7aa2f7"     # blue instead of comment grey
+    foreground = "#D282AF"     # blue instead of comment grey
     frame_color = "#565f89"
     timeout = 4
 
 [urgency_normal]
     background = "#24283b"
     foreground = "#c0caf5"
-    frame_color = "#7aa2f7"
+    frame_color = "#D282AF"
     timeout = 6
 
 [urgency_critical]
@@ -121,18 +121,20 @@
     format = "<b>%s</b>\n%b"
 
 [volume]
-    summary = "Volume"
+    appname = "volume"
+    summary = "Volume*"
     background = "#24283b"
-    foreground = "#7dcfff"
-    frame_color = "#7dcfff"
+    foreground = "#c0caf5"
+    frame_color = "#D282AF"
     timeout = 2
     history_ignore = yes
 
 [volume_muted]
-    summary = "Muted"
-    background = "#1f2335"
-    foreground = "#565f89"     # grey — appropriately silent
-    frame_color = "#3b4261"
+    appname = "volume"
+    summary = "Volume: Muted"
+    background = "#24283b"
+    foreground = "#c0caf5"
+    frame_color = "#D282AF"
     timeout = 2
     history_ignore = yes
 
@@ -144,13 +146,30 @@
     timeout = 2
 
 [brightness]
-    summary = "Brightness"
+    appname = "brightness"
+    summary = "Brightness*"
     background = "#24283b"
     foreground = "#e0af68"
     frame_color = "#ff9e64"
     timeout = 2
     history_ignore = yes
 
+
+[keyboard]
+    appname = "keyboard"
+    summary = "Num Lock*"
+    background = "#24283b"
+    foreground = "#c0caf5"
+    frame_color = "#D282AF"
+    timeout = 2
+
+[touchpad]
+    appname = "touchpad"
+    summary = "Touchpad*"
+    background = "#24283b"
+    foreground = "#c0caf5"
+    frame_color = "#D282AF"
+    timeout = 2
 
 [battery_low]
     summary = "*Battery*"
