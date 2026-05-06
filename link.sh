@@ -11,6 +11,7 @@ declare -A links=(
     ["rofi"]="$CONFIG/rofi"
     ["waybar"]="$CONFIG/waybar"
     ["wlogout"]="$CONFIG/wlogout"
+    ["fastfetch"]="$CONFIG/fastfetch"
 )
 
 # scripts that go directly into ~
