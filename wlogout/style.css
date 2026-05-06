@@ -1,0 +1,78 @@
+* {
+  background-image: none;
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+window {
+  background-color: #16161D;
+  font-family: "JetBrainsMono Nerd Font";
+  color: #C9C7BC;
+}
+
+button {
+  background-color: #2A2A37;
+  border: 1px solid #363646;
+  border-radius: 12px;
+  color: #C8C093;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  background-repeat: no-repeat;
+  background-position: center 30%;
+  background-size: 48px 48px;
+  padding-top: 100px;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+button:hover {
+  background-color: #363646;
+}
+
+button:focus {
+  outline: none;
+  background-color: #2A2A37;
+}
+
+button:active {
+  background-color: #1F1F28;
+}
+
+#suspend {
+  background-image: url("file:///usr/share/wlogout/icons/suspend.png");
+  margin: 10px;
+}
+
+#suspend:hover {
+  border-color: #91D5E0;
+  color: #91D5E0;
+}
+
+#logout {
+  background-image: url("file:///usr/share/wlogout/icons/logout.png");
+  margin: 10px;
+}
+
+#logout:hover {
+  border-color: #7E9CD8;
+  color: #7E9CD8;
+}
+
+#reboot {
+  background-image: url("file:///usr/share/wlogout/icons/reboot.png");
+  margin: 10px;
+}
+
+#reboot:hover {
+  border-color: #FFA066;
+  color: #FFA066;
+}
+
+#shutdown {
+  background-image: url("file:///usr/share/wlogout/icons/shutdown.png");
+  margin: 10px;
+}
+
+#shutdown:hover {
+  border-color: #C34043;
+  color: #C34043;
+}
