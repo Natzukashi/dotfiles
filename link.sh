@@ -14,15 +14,6 @@ declare -A links=(
     ["fastfetch"]="$CONFIG/fastfetch"
 )
 
-# scripts that go directly into ~
-declare -a scripts=(
-    brightness.sh
-    numlock.sh
-    screenshot.sh
-    touchpad.sh
-    volume.sh
-)
-
 link() {
     local src="$1" dst="$2"
 
@@ -43,12 +34,6 @@ link() {
 echo "==> Linking config dirs to $CONFIG"
 for src_rel in "${!links[@]}"; do
     link "$DOTFILES/$src_rel" "${links[$src_rel]}"
-done
-
-echo ""
-echo "==> Linking scripts to $CONFIG"
-for script in "${scripts[@]}"; do
-    link "$DOTFILES/$script" "$CONFIG/$script"
 done
 
 echo ""
