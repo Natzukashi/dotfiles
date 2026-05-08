@@ -13,7 +13,8 @@
 
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/mode"
+        "hyprland/mode",
+        "tray"
     ],
     "modules-center": [
         "clock"
@@ -23,7 +24,6 @@
         "bluetooth",
         "network",
         "battery",
-        "tray",
         "custom/power"
     ],
 

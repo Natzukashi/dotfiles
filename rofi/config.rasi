@@ -18,4 +18,4 @@ configuration{
     kb-move-char-forward: "Control+f";
     kb-mode-complete: "Control+o";
 }
-@theme "~/.config/rofi/tokyonight.rasi"
+@theme "~/.config/rofi/squared-material-red.rasi"
