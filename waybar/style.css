@@ -1,19 +1,19 @@
 /* ═══════════════════════════════════════════════════════════
-   Kanagawa Wave palette
-   --bg:      #1F1F28  sumiInk3
-   --surface: #181820  sumiInk1
-   --overlay: #2A2A37  sumiInk4
-   --border:  #54546D  sumiInk6
-   --fg:      #DCD7BA  fujiWhite
-   --comment: #727169  fujiGray
-   --blue:    #7E9CD8  crystalBlue
-   --cyan:    #7FB4CA  springBlue
-   --green:   #98BB6C  springGreen
-   --yellow:  #E6C384  carpYellow
-   --orange:  #FFA066  surimiOrange
-   --red:     #E46876  waveRed
-   --purple:  #957FB8  oniViolet
-   --teal:    #6A9589  waveAqua1
+   Tokyo Night Storm palette
+   bg:      #24283b
+   surface: #1f2335
+   overlay: #292e42
+   border:  #3b4261
+   fg:      #c0caf5
+   comment: #565f89
+   blue:    #7aa2f7
+   cyan:    #7dcfff
+   green:   #9ece6a
+   yellow:  #e0af68
+   orange:  #ff9e64
+   red:     #f7768e
+   purple:  #bb9af7
+   teal:    #0db9d7
    ═══════════════════════════════════════════════════════════ */
 
 * {
@@ -24,10 +24,10 @@
 }
 
 window#waybar {
-    /* background: #1F1F28; */
+    /* background: #24283b; */
     background: none;
     transition-property: background-color;
-    color: #DCD7BA;
+    color: #c0caf5;
 }
 
 window#waybar.hidden {
@@ -35,11 +35,11 @@ window#waybar.hidden {
 }
 
 tooltip {
-    background: rgba(42, 42, 55, 0.90);
-    border: 1px solid rgba(84, 84, 109, 0.75);
+    background: rgba(41, 46, 66, 0.90);
+    border: 1px solid rgba(59, 66, 97, 0.75);
 }
 tooltip label {
-    color: #DCD7BA;
+    color: #c0caf5;
 }
 
 /* ───────────── Workspaces ───────────── */
@@ -49,16 +49,16 @@ tooltip label {
     margin: 2px 2px;
     border-radius: 90px;
     background: transparent;
-    color: #DCD7BA;
+    color: #c0caf5;
 }
 
 #workspaces button.active {
-    background: #98BB6C;
-    color: #1F1F28;
+    background: #9ece6a;
+    color: #24283b;
 }
 
 #workspaces button:hover {
-    border: 1.5px solid #DCD7BA;
+    border: 1.5px solid #c0caf5;
     box-shadow: inherit;
 }
 
@@ -70,12 +70,12 @@ tooltip label {
     border: none;
     box-shadow: inherit;
     text-shadow: inherit;
-    color: #DCD7BA;
+    color: #c0caf5;
 }
 
 #clock:hover {
-    background-color: #E46876;
-    color: #1F1F28;
+    background-color: #f7768e;
+    color: #24283b;
     border-radius: 90px;
     transition: background-color 200ms ease;
 }
@@ -89,7 +89,7 @@ tooltip label {
 #tray,
 #custom-power {
     padding: 0 10px;
-    color: #DCD7BA;
+    color: #c0caf5;
 
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -102,37 +102,37 @@ tooltip label {
 
 /* Battery → orange */
 #battery {
-    color: #FFA066;
-    background-image: linear-gradient(#FFA066, #FFA066);
+    color: #ff9e64;
+    background-image: linear-gradient(#ff9e64, #ff9e64);
 }
 
 /* Audio → teal */
 #pulseaudio {
-    color: #6A9589;
-    background-image: linear-gradient(#6A9589, #6A9589);
+    color: #0db9d7;
+    background-image: linear-gradient(#0db9d7, #0db9d7);
 }
 
 /* Bluetooth → blue */
 #bluetooth {
-    color: #7E9CD8;
-    background-image: linear-gradient(#7E9CD8, #7E9CD8);
+    color: #7aa2f7;
+    background-image: linear-gradient(#7aa2f7, #7aa2f7);
 }
 
 /* Network → yellow */
 #network {
-    color: #E6C384;
-    background-image: linear-gradient(#E6C384, #E6C384);
+    color: #e0af68;
+    background-image: linear-gradient(#e0af68, #e0af68);
 }
 
 /* Tray → purple */
 #tray {
-    background-image: linear-gradient(#957FB8, #957FB8);
+    background-image: linear-gradient(#bb9af7, #bb9af7);
 }
 
 /* Power → red */
 #custom-power {
-    color: #E46876;
-    background-image: linear-gradient(#E46876, #E46876);
+    color: #f7768e;
+    background-image: linear-gradient(#f7768e, #f7768e);
 }
 
 /* ───────────── Hover effect (center → out) ───────────── */
@@ -149,19 +149,19 @@ tooltip label {
 /* ───────────── Battery states ───────────── */
 
 #battery.charging {
-    color: #1F1F28;
-    background-color: #98BB6C;
+    color: #24283b;
+    background-color: #9ece6a;
 }
 
 @keyframes blink {
     to {
-        background-color: #DCD7BA;
-        color: #1F1F28;
+        background-color: #c0caf5;
+        color: #24283b;
     }
 }
 
 #battery.warning:not(.charging), #battery.critical:not(.charging) {
-    background: #E46876;
-    color: #1F1F28;
+    background: #f7768e;
+    color: #24283b;
     animation: blink 0.5s steps(12) infinite alternate;
 }
