@@ -4,5 +4,5 @@ dynamic_padding = true
 opacity = 0.8
 
 [font]
-normal = {family = "Iosevka Nerd Font", style = "Regular"}
-size = 16
+normal = {family = "JetBrainsMono Nerd Font", style = "Regular"}
+size = 17
