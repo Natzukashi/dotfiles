@@ -1,3 +1,6 @@
+[general]
+import = ["~/dotfiles/alacritty/tokyo-night-default.toml"]
+
 [window]
 padding = {x = 3, y = 3}
 dynamic_padding = true
@@ -6,6 +9,3 @@ opacity = 0.8
 [font]
 normal = {family = "IntoneMono Nerd Font", style = "Regular"}
 size = 17
-
-[general]
-import = ["~/dotfiles/alacritty/kanagawa-wave.toml"]
