@@ -4,5 +4,8 @@ dynamic_padding = true
 opacity = 0.8
 
 [font]
-normal = {family = "JetBrainsMono Nerd Font", style = "Regular"}
+normal = {family = "IntoneMono Nerd Font", style = "Regular"}
 size = 17
+
+[general]
+import = ["~/dotfiles/alacritty/kanagawa-wave.toml"]

@@ -1,18 +1,19 @@
 /* ═══════════════════════════════════════════════════════════
-   Background:   #0d0e1a  (deep bg, darker than stock)
-   Surface:      #11121f  (alt bg)
-   Overlay:      #181926  (tooltip bg)
-   Border:       #363b54  (muted border)
-   Foreground:   #cdd6f4  (brighter main text)
-   Comment:      #4a5173  (muted)
-   Blue:         #89a4e8  (softer, less saturated periwinkle)
-   Cyan:         #56d4f5  (more vivid)
-   Green:        #b5e877  (punchier lime-green)
-   Yellow:       #f5c96a  (warmer, more saturated)
-   Orange:       #ff8c42  (deeper orange)
-   Red:          #ff5577  (more vivid red)
-   Purple:       #c49ff7  (slightly brighter)
-   Teal:         #00d9c0  (vivid teal)
+   Kanagawa Wave palette
+   --bg:      #1F1F28  sumiInk3
+   --surface: #181820  sumiInk1
+   --overlay: #2A2A37  sumiInk4
+   --border:  #54546D  sumiInk6
+   --fg:      #DCD7BA  fujiWhite
+   --comment: #727169  fujiGray
+   --blue:    #7E9CD8  crystalBlue
+   --cyan:    #7FB4CA  springBlue
+   --green:   #98BB6C  springGreen
+   --yellow:  #E6C384  carpYellow
+   --orange:  #FFA066  surimiOrange
+   --red:     #E46876  waveRed
+   --purple:  #957FB8  oniViolet
+   --teal:    #6A9589  waveAqua1
    ═══════════════════════════════════════════════════════════ */
 
 * {
@@ -23,10 +24,10 @@
 }
 
 window#waybar {
-    /* background: #0d0e1a; */
+    /* background: #1F1F28; */
     background: none;
     transition-property: background-color;
-    color: #cdd6f4;
+    color: #DCD7BA;
 }
 
 window#waybar.hidden {
@@ -34,11 +35,11 @@ window#waybar.hidden {
 }
 
 tooltip {
-    background: rgba(24, 25, 38, 0.90);
-    border: 1px solid rgba(54, 59, 84, 0.75);
+    background: rgba(42, 42, 55, 0.90);
+    border: 1px solid rgba(84, 84, 109, 0.75);
 }
 tooltip label {
-    color: #cdd6f4;
+    color: #DCD7BA;
 }
 
 /* ───────────── Workspaces ───────────── */
@@ -48,16 +49,16 @@ tooltip label {
     margin: 2px 2px;
     border-radius: 90px;
     background: transparent;
-    color: #cdd6f4;
+    color: #DCD7BA;
 }
 
 #workspaces button.active {
-    background: #b5e877;
-    color: #0d0e1a;
+    background: #98BB6C;
+    color: #1F1F28;
 }
 
 #workspaces button:hover {
-    border: 1.5px solid #cdd6f4;
+    border: 1.5px solid #DCD7BA;
     box-shadow: inherit;
 }
 
@@ -69,12 +70,12 @@ tooltip label {
     border: none;
     box-shadow: inherit;
     text-shadow: inherit;
-    color: #cdd6f4;
+    color: #DCD7BA;
 }
 
 #clock:hover {
-    background-color: #ff5577;
-    color: #0d0e1a;
+    background-color: #E46876;
+    color: #1F1F28;
     border-radius: 90px;
     transition: background-color 200ms ease;
 }
@@ -88,7 +89,7 @@ tooltip label {
 #tray,
 #custom-power {
     padding: 0 10px;
-    color: #cdd6f4;
+    color: #DCD7BA;
 
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -101,37 +102,37 @@ tooltip label {
 
 /* Battery → orange */
 #battery {
-    color: #ff8c42;
-    background-image: linear-gradient(#ff8c42, #ff8c42);
+    color: #FFA066;
+    background-image: linear-gradient(#FFA066, #FFA066);
 }
 
-/* Audio → cyan */
+/* Audio → teal */
 #pulseaudio {
-    color: #00d9c0;
-    background-image: linear-gradient(#00d9c0, #00d9c0);
+    color: #6A9589;
+    background-image: linear-gradient(#6A9589, #6A9589);
 }
 
-/* Bluetooth → soft periwinkle */
+/* Bluetooth → blue */
 #bluetooth {
-    color: #89a4e8;
-    background-image: linear-gradient(#89a4e8, #89a4e8);
+    color: #7E9CD8;
+    background-image: linear-gradient(#7E9CD8, #7E9CD8);
 }
 
 /* Network → yellow */
 #network {
-    color: #f5c96a;
-    background-image: linear-gradient(#f5c96a, #f5c96a);
+    color: #E6C384;
+    background-image: linear-gradient(#E6C384, #E6C384);
 }
 
 /* Tray → purple */
 #tray {
-    background-image: linear-gradient(#c49ff7, #c49ff7);
+    background-image: linear-gradient(#957FB8, #957FB8);
 }
 
 /* Power → red */
 #custom-power {
-    color: #ff5577;
-    background-image: linear-gradient(#ff5577, #ff5577);
+    color: #E46876;
+    background-image: linear-gradient(#E46876, #E46876);
 }
 
 /* ───────────── Hover effect (center → out) ───────────── */
@@ -148,19 +149,19 @@ tooltip label {
 /* ───────────── Battery states ───────────── */
 
 #battery.charging {
-    color: #0d0e1a;
-    background-color: #b5e877;
+    color: #1F1F28;
+    background-color: #98BB6C;
 }
 
 @keyframes blink {
     to {
-        background-color: #cdd6f4;
-        color: #0d0e1a;
+        background-color: #DCD7BA;
+        color: #1F1F28;
     }
 }
 
 #battery.warning:not(.charging), #battery.critical:not(.charging) {
-    background: #ff5577;
-    color: #0d0e1a;
+    background: #E46876;
+    color: #1F1F28;
     animation: blink 0.5s steps(12) infinite alternate;
 }
