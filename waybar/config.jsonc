@@ -77,7 +77,7 @@
 
     "network": {
         // "interface": "wlp2*",   // uncomment to pin to a specific interface
-        "on-click": "alacritty -e wlctl",
+        "on-click": "kitty -e wlctl",
 
         "format-wifi":         "Connected 󰤨",
         "format-disconnected": "Disconnected 󰤭"
@@ -88,7 +88,7 @@
 
     "pulseaudio": {
         // "scroll-step": 1,   // volume scroll step in %
-        "on-click": "alacritty -e wiremix",
+        "on-click": "kitty -e wiremix",
 
         "format":                 "{volume}% {icon}  {format_source}",
         "format-bluetooth":       "{volume}% {icon}  {format_source}",
@@ -120,7 +120,7 @@
 
     "bluetooth": {
         "interval": 2,
-        "on-click": "alacritty -e bluetui",
+        "on-click": "kitty -e bluetui",
 
         "format":              "󰂯",
         "format-off":          "󰂲",
