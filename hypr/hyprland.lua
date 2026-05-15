@@ -32,7 +32,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("wl-paste --type image --watch cliphist store &")
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd('gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"')
-	hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-scheme "adw-gtk3"')
+	hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"')
 end)
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -81,7 +81,7 @@ hl.config({
 		border_size = 2,
 
 		col = {
-			active_border = "rgb(76, 104, 158)",
+			active_border = "rgb(146,72,66)",
 			inactive_border = "rgb(45,71,140)",
 		},
 
@@ -245,7 +245,7 @@ hl.bind(
 	mainMod .. " + SHIFT + M",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
-
+hl.bind("F11", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
@@ -253,7 +253,7 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(waybar))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("rofi -show emoji"))
-
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))

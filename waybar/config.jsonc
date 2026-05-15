@@ -8,7 +8,7 @@
 
 {
     "layer":    "top",
-    "position": "bottom",
+    "position": "top",
     "spacing":  4,
 
     "modules-left": [
