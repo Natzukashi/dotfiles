@@ -15,7 +15,7 @@ hl.monitor({
 ---------------------
 
 local terminal = "kitty"
-local fileManager = "dolphin"
+local fileManager = "pcmanfm"
 local menu = "rofi -show drun"
 
 -------------------
@@ -43,7 +43,8 @@ end)
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("WLR_NO_HARDWARE_CURSORS", "1")
-hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("ADW_DISABLE_PORTAL", "1")
+-- hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -- hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "mesa")
