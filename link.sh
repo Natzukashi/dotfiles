@@ -6,7 +6,7 @@ CONFIG="$HOME/.config"
 # map: source (relative to ~/dotfiles) -> target
 declare -A links=(
     ["hypr"]="$CONFIG/hypr"
-    ["kitty"]="$CONFIG/kitty"
+    ["alacritty"]="$CONFIG/alacritty"
     ["dunst"]="$CONFIG/dunst"
     ["rofi"]="$CONFIG/rofi"
     ["waybar"]="$CONFIG/waybar"

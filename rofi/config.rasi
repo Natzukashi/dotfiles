@@ -1,5 +1,5 @@
 configuration{
-    modi: ["drun", "window", "run", "emoji"];
+    modi: ["drun", "window", "run"];
     icon-theme: "papirus";
     show-icons: true;
     terminal: "alacritty";
