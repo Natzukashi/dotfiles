@@ -9,6 +9,9 @@ Clone just this repo with:
 git clone https://github.com/Natzukashi/dotfiles --single-branch -b nixos
 ```
 
+>[!WARNING]
+>This repo also has my `hardware-configuration.nix` file. This is unique for every machine. Please do back-up your original `hardware-configuration.nix` as you will need to replace mine with yours.
+
 Very simple configuration.nix with flakes. Follow the official NixOS guide to know what to do.
 
 To apply the configuration, you will need to rebuild the system configuration.
