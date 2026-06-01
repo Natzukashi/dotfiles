@@ -91,6 +91,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "dialout"
     ];
   };
 
@@ -123,7 +124,6 @@
   ];
 
   programs = {
-    firefox.enable = true;
     starship.enable = true;
     git.enable = true;
     nix-ld.enable = true;
@@ -172,11 +172,20 @@
     file
     wine
     kdePackages.bluedevil
+    clang-tools
+    lua-language-server
+    discord
+    nur.repos.Ev357.helium
+    fd
+    ripgrep
+    arduino-ide
   ];
 
+  fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.intone-mono
     nerd-fonts.jetbrains-mono
+    adwaita-fonts
   ];
 
   system.stateVersion = "26.05";
