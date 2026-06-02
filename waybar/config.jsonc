@@ -7,7 +7,7 @@
 // ─── Bar Layout ───────────────────────────────────────────────────────────────
 
 {
-    "layer":    "bottom",
+    "layer":    "top",
     "position": "top",
     "spacing":  4,
 

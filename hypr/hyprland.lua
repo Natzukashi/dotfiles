@@ -4,10 +4,10 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-	output = "",
-	mode = "1920x1080@60",
-	position = "auto",
-	scale = "auto",
+    output = "",
+    mode = "1920x1080@60",
+    position = "auto",
+    scale = "auto",
 })
 
 ---------------------
@@ -23,16 +23,16 @@ local menu = "rofi -show drun"
 -------------------
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd("kbuildsycoca6")
-	hl.exec_cmd("hypridle")
-	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-	hl.exec_cmd("awww-daemon")
-	hl.exec_cmd("waybar")
-	hl.exec_cmd("wl-paste --type text --watch cliphist store &")
-	hl.exec_cmd("wl-paste --type image --watch cliphist store &")
-	hl.exec_cmd('gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"')
-	hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"')
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd("kbuildsycoca6")
+    hl.exec_cmd("hypridle")
+    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+    hl.exec_cmd("awww-daemon")
+    hl.exec_cmd("waybar")
+    hl.exec_cmd("wl-paste --type text --watch cliphist store &")
+    hl.exec_cmd("wl-paste --type image --watch cliphist store &")
+    hl.exec_cmd('gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"')
+    hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"')
 end)
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -51,11 +51,11 @@ hl.env("__GLX_VENDOR_LIBRARY_NAME", "mesa")
 hl.env("AMD_VULKAN_ICD", "radeonsi")
 hl.env("__NV_PRIME_RENDER_OFFLOAD", "0")
 hl.env("AQ_DRM_DEVICES", "/dev/dri/card1:/dev/dri/card0")
--- hl.env("AQ_DRM_DEVICES", "/dev/dri/by-path/pci-0000:05:00.0-card:/dev/dri/by-path/pci-0000:01:00.0-card")
+-- DOES NOT WORK hl.env("AQ_DRM_DEVICES", "/dev/dri/by-path/pci-0000:05:00.0-card:/dev/dri/by-path/pci-0000:01:00.0-card")
 hl.env("XDG_MENU_PREFIX", "arch-")
 hl.env(
-	"XDG_DATA_DIRS",
-	"/var/lib/flatpak/exports/share:/home/dog/.local/share/flatpak/exports/share:/usr/local/share:/usr/share"
+    "XDG_DATA_DIRS",
+    "/var/lib/flatpak/exports/share:/home/dog/.local/share/flatpak/exports/share:/usr/local/share:/usr/share"
 )
 -----------------------
 ----- PERMISSIONS -----
@@ -81,41 +81,41 @@ hl.env(
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
-	general = {
-		gaps_in = 2,
-		gaps_out = 5,
+    general = {
+        gaps_in = 2,
+        gaps_out = 5,
 
-		border_size = 2,
+        border_size = 2,
 
-		col = {
-			active_border = "#E0AF68",
-			inactive_border = "rgb(45,71,140)",
-		},
+        col = {
+            active_border = "#E0AF68",
+            inactive_border = "rgb(45,71,140)",
+        },
 
-		resize_on_border = true,
-		allow_tearing = false,
-		layout = "dwindle",
-	},
+        resize_on_border = true,
+        allow_tearing = false,
+        layout = "dwindle",
+    },
 
-	decoration = {
-		rounding = 6,
+    decoration = {
+        rounding = 0,
 
-		blur = {
-			enabled = false,
-		},
+        blur = {
+            enabled = false,
+        },
 
-		shadow = {
-			enabled = false,
-		},
-	},
+        shadow = {
+            enabled = false,
+        },
+    },
 
-	animations = {
-		enabled = true,
-	},
+    animations = {
+        enabled = true,
+    },
 
-	dwindle = {
-		preserve_split = true,
-	},
+    dwindle = {
+        preserve_split = true,
+    },
 })
 
 -- Curves
@@ -149,23 +149,23 @@ hl.animation({ leaf = "layers", enabled = true, speed = 2.5, bezier = "snap", st
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
-	dwindle = {
-		preserve_split = true, -- You probably want this
-	},
+    dwindle = {
+        preserve_split = true, -- You probably want this
+    },
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 hl.config({
-	master = {
-		new_status = "master",
-	},
+    master = {
+        new_status = "master",
+    },
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
 hl.config({
-	scrolling = {
-		fullscreen_on_one_column = true,
-	},
+    scrolling = {
+        fullscreen_on_one_column = true,
+    },
 })
 
 ----------------
@@ -173,10 +173,10 @@ hl.config({
 ----------------
 
 hl.config({
-	misc = {
-		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
-		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
-	},
+    misc = {
+        force_default_wallpaper = -1,  -- Set to 0 or 1 to disable the anime mascot wallpapers
+        disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
+    },
 })
 
 ---------------
@@ -184,33 +184,33 @@ hl.config({
 ---------------
 
 hl.config({
-	input = {
-		kb_layout = "us",
-		kb_variant = "",
-		kb_model = "",
-		kb_options = "",
-		kb_rules = "",
-		repeat_rate = 35,
-		repeat_delay = 200,
-		follow_mouse = 1,
-		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
-		touchpad = {
-			natural_scroll = true,
-		},
-	},
+    input = {
+        kb_layout = "us",
+        kb_variant = "",
+        kb_model = "",
+        kb_options = "",
+        kb_rules = "",
+        repeat_rate = 35,
+        repeat_delay = 200,
+        follow_mouse = 1,
+        sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+        touchpad = {
+            natural_scroll = true,
+        },
+    },
 })
 
 hl.gesture({
-	fingers = 3,
-	direction = "horizontal",
-	action = "workspace",
+    fingers = 3,
+    direction = "horizontal",
+    action = "workspace",
 })
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
-	name = "epic-mouse-v1",
-	sensitivity = -0.5,
+    name = "epic-mouse-v1",
+    sensitivity = -0.5,
 })
 
 ---------------------
@@ -225,8 +225,8 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 
 hl.bind(
-	mainMod .. " + SHIFT + M",
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+    mainMod .. " + SHIFT + M",
+    hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 hl.bind("SHIFT + F11", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
@@ -246,9 +246,9 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    local key = i % 10 -- 10 maps to key 0
+    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Scroll through existing workspaces with mainMod + scroll
@@ -266,34 +266,34 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("bash ~/dotfiles/scripts/scre
 
 -- Brightness and volume controls
 hl.bind(
-	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("bash /home/dog/dotfiles/scripts/volume.sh up"),
-	{ locked = true, repeating = true }
+    "XF86AudioRaiseVolume",
+    hl.dsp.exec_cmd("bash /home/dog/dotfiles/scripts/volume.sh up"),
+    { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd("bash /home/dog/dotfiles/scripts/volume.sh down"),
-	{ locked = true, repeating = true }
+    "XF86AudioLowerVolume",
+    hl.dsp.exec_cmd("bash /home/dog/dotfiles/scripts/volume.sh down"),
+    { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioMute",
-	hl.dsp.exec_cmd("bash /home/dog/dotfiles/scripts/volume.sh mute"),
-	{ locked = true, repeating = true }
+    "XF86AudioMute",
+    hl.dsp.exec_cmd("bash /home/dog/dotfiles/scripts/volume.sh mute"),
+    { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioMicMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-	{ locked = true, repeating = true }
+    "XF86AudioMicMute",
+    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+    { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86MonBrightnessUp",
-	hl.dsp.exec_cmd("bash /home/dog/dotfiles/scripts/brightness.sh up"),
-	{ locked = true, repeating = true }
+    "XF86MonBrightnessUp",
+    hl.dsp.exec_cmd("bash /home/dog/dotfiles/scripts/brightness.sh up"),
+    { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86MonBrightnessDown",
-	hl.dsp.exec_cmd("bash /home/dog/dotfiles/scripts/brightness.sh down"),
-	{ locked = true, repeating = true }
+    "XF86MonBrightnessDown",
+    hl.dsp.exec_cmd("bash /home/dog/dotfiles/scripts/brightness.sh down"),
+    { locked = true, repeating = true }
 )
 
 -- Notifications for touchpad and numlock
@@ -317,27 +317,27 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 -- Example window rules that are useful
 
 local suppressMaximizeRule = hl.window_rule({
-	-- Ignore maximize requests from all apps. You'll probably like this.
-	name = "suppress-maximize-events",
-	match = { class = ".*" },
+    -- Ignore maximize requests from all apps. You'll probably like this.
+    name = "suppress-maximize-events",
+    match = { class = ".*" },
 
-	suppress_event = "maximize",
+    suppress_event = "maximize",
 })
 -- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
-	-- Fix some dragging issues with XWayland
-	name = "fix-xwayland-drags",
-	match = {
-		class = "^$",
-		title = "^$",
-		xwayland = true,
-		float = true,
-		fullscreen = false,
-		pin = false,
-	},
+    -- Fix some dragging issues with XWayland
+    name = "fix-xwayland-drags",
+    match = {
+        class = "^$",
+        title = "^$",
+        xwayland = true,
+        float = true,
+        fullscreen = false,
+        pin = false,
+    },
 
-	no_focus = true,
+    no_focus = true,
 })
 
 -- Layer rules also return a handle.
@@ -350,18 +350,9 @@ hl.window_rule({
 
 -- Hyprland-run windowrule
 hl.window_rule({
-	name = "move-hyprland-run",
-	match = { class = "hyprland-run" },
+    name = "move-hyprland-run",
+    match = { class = "hyprland-run" },
 
-	move = "20 monitor_h-120",
-	float = true,
-})
-hl.window_rule({
-	match = { class = ".*" },
-	suppress_event = "maximize",
-})
-
-hl.window_rule({
-	match = { class = ".*" },
-	suppress_event = "fullscreen",
+    move = "20 monitor_h-120",
+    float = true,
 })

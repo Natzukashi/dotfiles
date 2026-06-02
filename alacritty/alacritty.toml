@@ -1,9 +1,9 @@
 [window]
-dynamic_padding = true
-opacity = 0.8
+padding = { x = 15, y = 15 }
+opacity = 0.9
 
 [font]
-normal = {family = "Intone Mono Nerd Font", style = "Regular"}
+normal = {family = "JetBrains Mono Nerd Font", style = "Regular"}
 size = 16
 
 [colors.bright]
