@@ -15,7 +15,7 @@ hl.monitor({
 ---------------------
 
 local terminal = "alacritty"
-local fileManager = "pcmanfm"
+local fileManager = "dolphin"
 local menu = "rofi -show drun"
 
 -------------------
@@ -98,7 +98,7 @@ hl.config({
     },
 
     decoration = {
-        rounding = 0,
+        rounding = 12,
 
         blur = {
             enabled = false,
