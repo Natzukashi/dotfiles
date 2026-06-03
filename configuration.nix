@@ -47,8 +47,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  services.xserver.enable = true;
-
   services.power-profiles-daemon.enable = false;
   services.auto-cpufreq = {
     enable = true;
@@ -91,7 +89,6 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "dialout"
     ];
   };
 
@@ -118,17 +115,18 @@
     };
   };
 
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    konsole
-    kate
-  ];
-
   programs = {
+    firefox.enable = true;
     starship.enable = true;
     git.enable = true;
     nix-ld.enable = true;
     steam.enable = true;
   };
+
+  services.desktopManager.plasma6.excludePackages = with pkgs.kdePackages; [
+    konsole
+    kate
+  ];
 
   environment.systemPackages = with pkgs; [
     neovim
@@ -171,19 +169,17 @@
     tealdeer
     file
     wine
-    kdePackages.bluedevil
+    lshw
     clang-tools
+    gnome-tweaks
     lua-language-server
     discord
-    nur.repos.Ev357.helium
     fd
     ripgrep
-    arduino-ide
   ];
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
-    nerd-fonts.intone-mono
     nerd-fonts.jetbrains-mono
     adwaita-fonts
   ];
