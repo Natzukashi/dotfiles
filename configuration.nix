@@ -120,11 +120,18 @@
     starship.enable = true;
     git.enable = true;
     nix-ld.enable = true;
-    steam.enable = true;
   };
 
-  services.desktopManager.plasma6.excludePackages = with pkgs.kdePackages; [
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole
+    discover
     kate
   ];
 
@@ -176,6 +183,7 @@
     discord
     fd
     ripgrep
+    lazygit
   ];
 
   fonts.fontDir.enable = true;
