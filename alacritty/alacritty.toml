@@ -7,4 +7,5 @@ normal = { family = "Jetbrains Mono Nerd Font", style = "Regular" }
 size = 16
 
 [general]
-import = [ "./tokyonight.toml" ]
+import = [ "~/.config/alacritty/themes/noctalia.toml",
+]

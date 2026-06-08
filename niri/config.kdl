@@ -1,172 +1,221 @@
-// ~/.config/niri/config.kdl
-// Translated from Hyprland Lua config.
-// https://niri-wm.github.io/niri/Configuration:-Introduction
+// niri config.kdl
+// Converted from hyprland.lua
+// Place at: ~/.config/niri/config.kdl
+// Validate with: niri validate
 
-// ----------------
-// ---- OUTPUT ----
-// ----------------
-
-// Run `niri msg outputs` to find your output names.
-// Your internal display is likely "eDP-1".
-output "eDP-1" {
-    mode "1920x1080@60"
-    scale 1.0
-    // position x=0 y=0
-}
-
-// ---------------------
-// ---- ENVIRONMENT ----
-// ---------------------
+// ============================================================
+// ENVIRONMENT VARIABLES
+// ============================================================
+// NOTE: For PRIME/NVIDIA hybrid setups these are critical.
+// If you use niri as a systemd session (via niri-session), put
+// these in ~/.config/niri/env or pass them via the session wrapper.
 
 environment {
-    XCURSOR_SIZE       "24"
-    HYPRCURSOR_SIZE    "24"
-    // WLR_NO_HARDWARE_CURSORS not needed in niri
-    ADW_DISABLE_PORTAL "1"
-    QT_QPA_PLATFORMTHEME "qt6ct"
-    LIBVA_DRIVER_NAME  "nvidia"
+    XCURSOR_SIZE                "24"
+    QT_QPA_PLATFORMTHEME        "qt6ct"
+    LIBVA_DRIVER_NAME           "nvidia"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
-    // Mesa/AMD for compositor rendering (PRIME offload setup):
-    // niri picks its render device via debug.render-drm-device below.
-    // For child processes, keep these:
-    __GLX_VENDOR_LIBRARY_NAME "mesa"
-    AMD_VULKAN_ICD     "radeonsi"
-    // PRIME offload disabled at compositor level (use `prime-run` per-app)
-    __NV_PRIME_RENDER_OFFLOAD "0"
-    XDG_MENU_PREFIX    "arch-"
-    XDG_DATA_DIRS      "/var/lib/flatpak/exports/share:/home/dog/.local/share/flatpak/exports/share:/usr/local/share:/usr/share"
+    __GLX_VENDOR_LIBRARY_NAME   "nvidia"
+    // AQ_DRM_DEVICES is Hyprland/aquamarine-specific — not used in niri.
+    // Set DRM device order via udev rules or your session wrapper instead.
+    XDG_MENU_PREFIX             "arch-"
 }
 
-// Tell niri to render on the AMD iGPU (card1 = 05:00.0).
-// For PRIME offload, use `prime-run` when launching apps.
-debug {
-    render-drm-device "/dev/dri/card1"
-}
-
-// -------------------
-// ---- AUTOSTART ----
-// -------------------
-
-spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-spawn-at-startup "kbuildsycoca6"
-spawn-at-startup "hypridle"
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "awww-daemon"
-spawn-at-startup "waybar"
-spawn-sh-at-startup "wl-paste --type text --watch cliphist store &"
-spawn-sh-at-startup "wl-paste --type image --watch cliphist store &"
-spawn-sh-at-startup "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
-spawn-sh-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'"
-
-// -----------------------
-// ---- LOOK AND FEEL ----
-// -----------------------
-
-prefer-no-csd
-
-hotkey-overlay {
-    skip-at-startup
-}
-
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-layout {
-    gaps 5
-
-    // niri has no dwindle — windows tile as columns on a horizontal strip.
-    // default-column-width sets the initial width of new windows.
-    default-column-width { proportion 0.5; }
-
-    // Border replaces Hyprland's col.active_border / col.inactive_border.
-    // Disable focus-ring if you use border.
-    focus-ring {
-        off
-    }
-
-    border {
-        width 2
-        active-color "#E0AF68"
-        inactive-color "#2D478C"
-    }
-
-    // Shadow off (matching your config)
-    shadow {
-        // off by default, leave commented
-    }
-}
-
-// ----------------
-// ---- INPUT ----
-// ----------------
+// ============================================================
+// INPUT
+// ============================================================
 
 input {
     keyboard {
         xkb {
             layout "us"
         }
-        repeat-rate 35
         repeat-delay 200
+        repeat-rate 35
+        numlock
     }
+
 
     touchpad {
         tap
         natural-scroll
     }
 
-    // focus-follows-mouse equivalent
-    // focus-follows-mouse max-scroll-amount="0%"
+    mouse {
+        accel-speed 0.6
+
+    }
 }
 
-// animations left at defaults
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+}
 
-// --------------------
-// ---- KEYBINDINGS ----
-// --------------------
+
+// ============================================================
+// OUTPUT
+// ============================================================
+// Run `niri msg outputs` to find your output name (usually eDP-1 on a laptop).
+
+output "eDP-1" {
+    mode "1920x1080@60.003"
+    scale 1
+    transform "normal"
+}
+
+debug {
+    render-drm-device "/dev/dri/renderD128"
+}
+
+// ============================================================
+// LAYOUT
+// ============================================================
+
+layout {
+    // gaps_in=5, gaps_out=10 in Hyprland → use 10 as the unified niri gap
+    gaps 7
+
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.90
+    }
+
+    default-column-width { proportion 0.92; }
+
+    // Focus ring replaces Hyprland's active_border / inactive_border
+    focus-ring {
+        width 2
+        active-color   "#4c689e"
+        inactive-color "#2d478c"
+    }
+
+    border {
+        off
+    }
+}
+
+// ============================================================
+// AUTOSTART
+// ============================================================
+
+spawn-at-startup "hypridle"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+spawn-at-startup "kbuildsycoca6"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+spawn-at-startup "noctalia"
+spawn-at-startup "xwayland-satellite"
+// gsettings — wrap in a shell call
+spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface color-scheme prefer-dark && gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3"
+
+// ============================================================
+// MISC / TOP-LEVEL OPTIONS
+// ============================================================
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+// ============================================================
+// ANIMATIONS
+// ============================================================
+// Niri has a simpler animation system than Hyprland.
+// Custom bezier curves are not supported; use spring or easing.
+
+animations {
+    slowdown 0.7
+
+    window-open {
+        duration-ms 250
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 250
+        curve "ease-out-expo"
+    }
+
+    horizontal-view-movement {
+        duration-ms 200
+        curve "ease-out-expo"
+    }
+
+    workspace-switch {
+        duration-ms 200
+        curve "ease-out-expo"
+        }
+}
+
+// ============================================================
+// BINDS
+// ============================================================
 
 binds {
-    // -- Launchers --
+    // Show hotkey overlay
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // Terminal
     Mod+Return { spawn "alacritty"; }
-    Mod+Q repeat=false { close-window; }
-    Mod+E { spawn "dolphin"; }
-    Mod+Space { spawn "rofi" "-show" "drun" "-icon-theme" "Papirus" "-show-icons"; }
 
-    // Emoji picker
-    Mod+Shift+E { spawn "rofimoji"; }
+    // File manager
+    Mod+E { spawn "nautilus"; }
 
-    // Clipboard history
-    Mod+V { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+    // App launcher (rofi)
+    Mod+Space { spawn "sh" "-c" "noctalia msg panel-toggle launcher"; }
 
-    // Reload waybar
-    Mod+Shift+W { spawn-sh "pkill waybar && waybar &"; }
+    // Control center
+    Mod+S { spawn "sh" "-c" "noctalia msg panel-toggle control-center"; }
 
-    // Quit niri (shows confirmation dialog)
-    Mod+Shift+M repeat=false { quit; }
+    // Settings
+    Mod+Comma { spawn "sh" "-c" "noctalia msg settings-toggle"; }
 
-    // -- Window management --
-    Shift+F11 repeat=false { fullscreen-window; }
-    Mod+F repeat=false { maximize-column; }
+    // Clipboard
+    Mod+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
 
-    // Float toggle (Hyprland SUPER+SHIFT+V)
+    // Exit / session
+    Mod+Shift+M { quit; }
+
+    // Lock screen
+    Mod+L { spawn "sh" "-c" "noctalia msg session lock"; }
+
+    // Toggle floating
     Mod+Shift+V { toggle-window-floating; }
 
-    // In niri, "pseudo" has no direct equivalent.
-    // Mod+P is unbound or you can use toggle-window-floating instead.
+    // Night light
+    Mod+N { spawn "sh" "-c" "noctalia msg nightlight-enable"; }
 
-    // -- Focus (arrow keys) --
+    // Close window
+    Mod+Q repeat=false { close-window; }
+
+    // Fullscreen (F11 and Mod+Shift+F)
+    Shift+F11 repeat=false { fullscreen-window; }
+
+    // Maximize column
+    Mod+F { maximize-column; }
+
+    // ── Focus movement ──────────────────────────────────────
     Mod+Left  { focus-column-left; }
     Mod+Right { focus-column-right; }
     Mod+Up    { focus-window-up; }
     Mod+Down  { focus-window-down; }
 
-    // -- Move windows --
+    // ── Move column ─────────────────────────────────────────
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Right { move-column-right; }
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Down  { move-window-down; }
 
-    // -- Workspaces --
-    // niri workspaces are dynamic and vertical (scroll up/down).
-    // Mod+[1-9] jumps to workspace by index (best-effort).
+    // ── Workspaces (numbered, matching Hyprland 1–9 + 0→10) ─
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -178,7 +227,6 @@ binds {
     Mod+9 { focus-workspace 9; }
     Mod+0 { focus-workspace 10; }
 
-    // Move window to workspace
     Mod+Shift+1 { move-column-to-workspace 1; }
     Mod+Shift+2 { move-column-to-workspace 2; }
     Mod+Shift+3 { move-column-to-workspace 3; }
@@ -190,53 +238,69 @@ binds {
     Mod+Shift+9 { move-column-to-workspace 9; }
     Mod+Shift+0 { move-column-to-workspace 10; }
 
-    // Scroll through workspaces with mouse wheel (Hyprland: SUPER+scroll)
+    // ── Workspace scroll (replaces Hyprland mouse wheel workspace switch) ──
     Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
 
-    // -- Screenshots --
-    Print           { spawn-sh "bash ~/dotfiles/scripts/screenshot.sh output"; }
-    Shift+Print     { spawn-sh "bash ~/dotfiles/scripts/screenshot.sh window"; }
-    Mod+Shift+S     { spawn-sh "bash ~/dotfiles/scripts/screenshot.sh region"; }
+    Mod+Ctrl+Comma { consume-window-into-column; }
+    Mod+Ctrl+Period { expel-window-from-column; }
 
-    // -- Volume --
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "bash /home/dog/dotfiles/scripts/volume.sh up"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "bash /home/dog/dotfiles/scripts/volume.sh down"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "bash /home/dog/dotfiles/scripts/volume.sh mute"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    // ── Column sizing ────────────────────────────────────────
+    Mod+R { switch-preset-column-width; }
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
 
-    // -- Brightness --
-    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "bash /home/dog/dotfiles/scripts/brightness.sh up"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "bash /home/dog/dotfiles/scripts/brightness.sh down"; }
+    // ── Column/window stacking ───────────────────────────────
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Shift+W { toggle-column-tabbed-display; }
 
-    // -- Touchpad / numlock notifications --
-    XF86TouchpadOn  allow-when-locked=true { spawn-sh "bash ~/dotfiles/scripts/touchpad.sh on"; }
-    XF86TouchpadOff allow-when-locked=true { spawn-sh "bash ~/dotfiles/scripts/touchpad.sh off"; }
-    Num_Lock        allow-when-locked=true { spawn-sh "bash ~/dotfiles/scripts/numlock.sh"; }
+    // ── Center ───────────────────────────────────────────────
+    Mod+C { center-column; }
 
-    // -- Media (playerctl) --
-    XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
-    XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioPlay  allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
+    // ── Overview (niri's workspace overview, replaces Hyprland overview) ──
+    Mod+O repeat=false { toggle-overview; }
 
-    // -- Hotkey overlay --
-    Mod+Shift+Slash { show-hotkey-overlay; }
+    // ── Screenshots ──────────────────────────────────────────
+    Mod+Shift+S           { spawn "sh" "-c" "noctalia msg screenshot-region ~/dotfiles/scripts/screenshot.sh output"; }
+    Print           { spawn "sh" "-c" "noctalia msg screenshot-fullscreen pick"; }
+
+    // ── Volume (via Noctalia IPC, matching original config) ──
+    XF86AudioRaiseVolume  allow-when-locked=true repeat=true { spawn "sh" "-c" "noctalia msg volume-up"; }
+    XF86AudioLowerVolume  allow-when-locked=true repeat=true { spawn "sh" "-c" "noctalia msg volume-down"; }
+    XF86AudioMute         allow-when-locked=true             { spawn "sh" "-c" "noctalia msg volume-mute"; }
+
+    // ── Brightness (via Noctalia IPC) ────────────────────────
+    XF86MonBrightnessUp   allow-when-locked=true repeat=true { spawn "sh" "-c" "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true repeat=true { spawn "sh" "-c" "noctalia msg brightness-down"; }
+
+    // ── Touchpad & Numlock ───────────────────────────────────
+    XF86TouchpadOn  allow-when-locked=true { spawn "sh" "-c" "bash ~/dotfiles/scripts/touchpad.sh on"; }
+    XF86TouchpadOff allow-when-locked=true { spawn "sh" "-c" "bash ~/dotfiles/scripts/touchpad.sh off"; }
+    Num_Lock        allow-when-locked=true { spawn "sh" "-c" "bash ~/dotfiles/scripts/numlock.sh"; }
+
+    // ── Media keys ───────────────────────────────────────────
+    XF86AudioNext  allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPause allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPlay  allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPrev  allow-when-locked=true { spawn "playerctl" "previous"; }
 }
 
-// -------------------------
-// ---- WINDOW RULES -------
-// -------------------------
+// ============================================================
+// WINDOW RULES
+// ============================================================
 
-// Fix XWayland drag issues (equivalent to your fix-xwayland-drags rule)
+// alacritty: floating, centered, with opacity
+
+
+// Firefox PiP — always floating
 window-rule {
-    match is-floating=true
-    match is-focused=false
-    // XWayland windows with no class/title that are floating: no special handling needed.
-    // niri handles this differently; xwayland-satellite manages XWayland.
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+window-rule {
+    geometry-corner-radius 18
+    clip-to-geometry true
 }
 
-// Hyprland's suppress-maximize rule: niri doesn't send maximize requests
-// to clients unless they ask, so this is a non-issue by default.
-
-// Gestures: 3-finger horizontal swipe switches workspaces (niri default behavior)
+include "noctalia.kdl"
