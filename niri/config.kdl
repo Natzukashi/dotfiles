@@ -1,0 +1,242 @@
+// ~/.config/niri/config.kdl
+// Translated from Hyprland Lua config.
+// https://niri-wm.github.io/niri/Configuration:-Introduction
+
+// ----------------
+// ---- OUTPUT ----
+// ----------------
+
+// Run `niri msg outputs` to find your output names.
+// Your internal display is likely "eDP-1".
+output "eDP-1" {
+    mode "1920x1080@60"
+    scale 1.0
+    // position x=0 y=0
+}
+
+// ---------------------
+// ---- ENVIRONMENT ----
+// ---------------------
+
+environment {
+    XCURSOR_SIZE       "24"
+    HYPRCURSOR_SIZE    "24"
+    // WLR_NO_HARDWARE_CURSORS not needed in niri
+    ADW_DISABLE_PORTAL "1"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    LIBVA_DRIVER_NAME  "nvidia"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    // Mesa/AMD for compositor rendering (PRIME offload setup):
+    // niri picks its render device via debug.render-drm-device below.
+    // For child processes, keep these:
+    __GLX_VENDOR_LIBRARY_NAME "mesa"
+    AMD_VULKAN_ICD     "radeonsi"
+    // PRIME offload disabled at compositor level (use `prime-run` per-app)
+    __NV_PRIME_RENDER_OFFLOAD "0"
+    XDG_MENU_PREFIX    "arch-"
+    XDG_DATA_DIRS      "/var/lib/flatpak/exports/share:/home/dog/.local/share/flatpak/exports/share:/usr/local/share:/usr/share"
+}
+
+// Tell niri to render on the AMD iGPU (card1 = 05:00.0).
+// For PRIME offload, use `prime-run` when launching apps.
+debug {
+    render-drm-device "/dev/dri/card1"
+}
+
+// -------------------
+// ---- AUTOSTART ----
+// -------------------
+
+spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+spawn-at-startup "kbuildsycoca6"
+spawn-at-startup "hypridle"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "waybar"
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store &"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store &"
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'"
+
+// -----------------------
+// ---- LOOK AND FEEL ----
+// -----------------------
+
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+layout {
+    gaps 5
+
+    // niri has no dwindle — windows tile as columns on a horizontal strip.
+    // default-column-width sets the initial width of new windows.
+    default-column-width { proportion 0.5; }
+
+    // Border replaces Hyprland's col.active_border / col.inactive_border.
+    // Disable focus-ring if you use border.
+    focus-ring {
+        off
+    }
+
+    border {
+        width 2
+        active-color "#E0AF68"
+        inactive-color "#2D478C"
+    }
+
+    // Shadow off (matching your config)
+    shadow {
+        // off by default, leave commented
+    }
+}
+
+// ----------------
+// ---- INPUT ----
+// ----------------
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+        repeat-rate 35
+        repeat-delay 200
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    // focus-follows-mouse equivalent
+    // focus-follows-mouse max-scroll-amount="0%"
+}
+
+// animations left at defaults
+
+// --------------------
+// ---- KEYBINDINGS ----
+// --------------------
+
+binds {
+    // -- Launchers --
+    Mod+Return { spawn "alacritty"; }
+    Mod+Q repeat=false { close-window; }
+    Mod+E { spawn "dolphin"; }
+    Mod+Space { spawn "rofi" "-show" "drun" "-icon-theme" "Papirus" "-show-icons"; }
+
+    // Emoji picker
+    Mod+Shift+E { spawn "rofimoji"; }
+
+    // Clipboard history
+    Mod+V { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+
+    // Reload waybar
+    Mod+Shift+W { spawn-sh "pkill waybar && waybar &"; }
+
+    // Quit niri (shows confirmation dialog)
+    Mod+Shift+M repeat=false { quit; }
+
+    // -- Window management --
+    Shift+F11 repeat=false { fullscreen-window; }
+    Mod+F repeat=false { maximize-column; }
+
+    // Float toggle (Hyprland SUPER+SHIFT+V)
+    Mod+Shift+V { toggle-window-floating; }
+
+    // In niri, "pseudo" has no direct equivalent.
+    // Mod+P is unbound or you can use toggle-window-floating instead.
+
+    // -- Focus (arrow keys) --
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-down; }
+
+    // -- Move windows --
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Right { move-column-right; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Down  { move-window-down; }
+
+    // -- Workspaces --
+    // niri workspaces are dynamic and vertical (scroll up/down).
+    // Mod+[1-9] jumps to workspace by index (best-effort).
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+
+    // Move window to workspace
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Shift+0 { move-column-to-workspace 10; }
+
+    // Scroll through workspaces with mouse wheel (Hyprland: SUPER+scroll)
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+
+    // -- Screenshots --
+    Print           { spawn-sh "bash ~/dotfiles/scripts/screenshot.sh output"; }
+    Shift+Print     { spawn-sh "bash ~/dotfiles/scripts/screenshot.sh window"; }
+    Mod+Shift+S     { spawn-sh "bash ~/dotfiles/scripts/screenshot.sh region"; }
+
+    // -- Volume --
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "bash /home/dog/dotfiles/scripts/volume.sh up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "bash /home/dog/dotfiles/scripts/volume.sh down"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "bash /home/dog/dotfiles/scripts/volume.sh mute"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    // -- Brightness --
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "bash /home/dog/dotfiles/scripts/brightness.sh up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "bash /home/dog/dotfiles/scripts/brightness.sh down"; }
+
+    // -- Touchpad / numlock notifications --
+    XF86TouchpadOn  allow-when-locked=true { spawn-sh "bash ~/dotfiles/scripts/touchpad.sh on"; }
+    XF86TouchpadOff allow-when-locked=true { spawn-sh "bash ~/dotfiles/scripts/touchpad.sh off"; }
+    Num_Lock        allow-when-locked=true { spawn-sh "bash ~/dotfiles/scripts/numlock.sh"; }
+
+    // -- Media (playerctl) --
+    XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPlay  allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
+
+    // -- Hotkey overlay --
+    Mod+Shift+Slash { show-hotkey-overlay; }
+}
+
+// -------------------------
+// ---- WINDOW RULES -------
+// -------------------------
+
+// Fix XWayland drag issues (equivalent to your fix-xwayland-drags rule)
+window-rule {
+    match is-floating=true
+    match is-focused=false
+    // XWayland windows with no class/title that are floating: no special handling needed.
+    // niri handles this differently; xwayland-satellite manages XWayland.
+}
+
+// Hyprland's suppress-maximize rule: niri doesn't send maximize requests
+// to clients unless they ask, so this is a non-issue by default.
+
+// Gestures: 3-finger horizontal swipe switches workspaces (niri default behavior)
