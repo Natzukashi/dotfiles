@@ -7,10 +7,6 @@ CONFIG="$HOME/.config"
 declare -A links=(
     ["niri"]="$CONFIG/niri"
     ["alacritty"]="$CONFIG/alacritty"
-    ["dunst"]="$CONFIG/dunst"
-    ["rofi"]="$CONFIG/rofi"
-    ["waybar"]="$CONFIG/waybar"
-    ["wlogout"]="$CONFIG/wlogout"
     ["fastfetch"]="$CONFIG/fastfetch"
 )
 
