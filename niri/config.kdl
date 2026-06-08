@@ -11,14 +11,15 @@
 // these in ~/.config/niri/env or pass them via the session wrapper.
 
 environment {
-    XCURSOR_SIZE                "24"
-    QT_QPA_PLATFORMTHEME        "qt6ct"
-    LIBVA_DRIVER_NAME           "nvidia"
+    XCURSOR_SIZE                 "24"
+    QT_QPA_PLATFORMTHEME         "qt6ct"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
-    __GLX_VENDOR_LIBRARY_NAME   "nvidia"
-    // AQ_DRM_DEVICES is Hyprland/aquamarine-specific — not used in niri.
-    // Set DRM device order via udev rules or your session wrapper instead.
-    XDG_MENU_PREFIX             "arch-"
+    __GLX_VENDOR_LIBRARY_NAME    "mesa"
+    AMD_VULKAN_ICD               "radeonsi"
+    __NV_PRIME_RENDER_OFFLOAD    "0"
+    LIBVA_DRIVER_NAME            "nvidia"
+    ADW_DISABLE_PORTAL           "1"
+    XDG_MENU_PREFIX              "arch-"
 }
 
 // ============================================================
@@ -45,10 +46,6 @@ input {
         accel-speed 0.6
 
     }
-}
-
-cursor {
-    xcursor-theme "Bibata-Modern-Classic"
 }
 
 
