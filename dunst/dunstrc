@@ -35,7 +35,7 @@
     corner_radius = 10
 
     ### Text ###
-    font = Inconsolata Nerd Font 13
+    font = Cousine Nerd Font 13
     line_height = 2
     markup = full
     format = "<b>%s</b>\n%b"

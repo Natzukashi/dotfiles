@@ -16,7 +16,7 @@ hl.monitor({
 
 local terminal = "alacritty"
 local fileManager = "dolphin"
-local menu = "rofi -show drun"
+local menu = "rofi -show drun -icon-theme Papirus -show-icons"
 
 -------------------
 ---- AUTOSTART ----
@@ -98,7 +98,7 @@ hl.config({
     },
 
     decoration = {
-        rounding = 12,
+        rounding = 0,
 
         blur = {
             enabled = false,
