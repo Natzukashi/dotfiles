@@ -3,8 +3,8 @@ padding = { x = 15, y = 15 }
 opacity = 0.9
 
 [font]
-normal = { family = "Jetbrains Mono Nerd Font", style = "Regular" }
-size = 16
+normal = { family = "Iosevka Term Nerd Font", style = "Regular" }
+size = 18
 
 [general]
 import = [ "~/.config/alacritty/themes/noctalia.toml",
