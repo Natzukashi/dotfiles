@@ -43,7 +43,6 @@ hl.config({
 
     animations = {
         enabled = true,
-        first_launch_animation = false,
     },
 
     input = {
@@ -52,11 +51,9 @@ hl.config({
         repeat_rate        = 35,
         numlock_by_default = true,
         follow_mouse       = 1,
-        sensitivity        = 0.6,
+        sensitivity        = 0.4,
         touchpad           = {
             natural_scroll = true,
-            tap_to_click   = true,
-            sensitivity    = 0.6,
         },
     },
 
@@ -76,11 +73,10 @@ hl.config({
 
 hl.curve("easeOutExpo", { type = "bezier", points = { { 0.16, 1 }, { 0.3, 1 } } })
 
-hl.animation("windows", { enabled = true, duration = 2, curve = "easeOutExpo", style = "slide" })
-hl.animation("windowsOut", { enabled = true, duration = 2, curve = "easeOutExpo", style = "slide" })
-hl.animation("fade", { enabled = true, duration = 2, curve = "easeOutExpo" })
-hl.animation("workspaces", { enabled = true, duration = 1.5, curve = "easeOutExpo", style = "slide" })
-
+hl.animation({ leaf = "windows", enabled = true, speed = 2, bezier = "easeOutExpo", style = "slide" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 2, bezier = "easeOutExpo", style = "slide" })
+hl.animation({ leaf = "fade", enabled = true, speed = 2, bezier = "easeOutExpo" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 1.5, bezier = "easeOutExpo", style = "slide" })
 -- ============================================================
 -- MONITOR
 -- ============================================================
@@ -159,7 +155,6 @@ hl.bind(mod .. " + Q", hl.dsp.window.close())
 
 -- Fullscreen
 hl.bind("SHIFT + F11", hl.dsp.window.fullscreen())
-hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ mode = "maximize" }))
 
 -- Focus movement (hl.dsp.focus, not hl.dsp.window.focus)
 hl.bind(mod .. " + Left", hl.dsp.focus({ direction = "left" }))
