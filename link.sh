@@ -5,7 +5,7 @@ CONFIG="$HOME/.config"
 
 # map: source (relative to ~/dotfiles) -> target
 declare -A links=(
-    ["niri"]="$CONFIG/niri"
+    ["hypr"]="$CONFIG/hypr"
     ["alacritty"]="$CONFIG/alacritty"
     ["fastfetch"]="$CONFIG/fastfetch"
 )
