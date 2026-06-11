@@ -28,6 +28,7 @@ hl.config({
         ["col.inactive_border"] = "rgba(2d478cff)",
         layout                  = "dwindle",
         allow_tearing           = false,
+        resize_on_border        = true,
     },
 
     decoration = {
@@ -91,16 +92,11 @@ hl.monitor({
 -- ============================================================
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("hypridle")
-    hl.exec_cmd("wl-paste --type text --watch cliphist store")
-    hl.exec_cmd("wl-paste --type image --watch cliphist store")
     hl.exec_cmd("kbuildsycoca6")
-    hl.exec_cmd("awww-daemon")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
     hl.exec_cmd("noctalia")
-    hl.exec_cmd("xwayland-satellite")
     hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme prefer-dark")
     hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3")
 end)
@@ -124,7 +120,7 @@ local mod = "SUPER"
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("alacritty"))
 
 -- File manager
-hl.bind(mod .. " + E", hl.dsp.exec_cmd("nautilus"))
+hl.bind(mod .. " + E", hl.dsp.exec_cmd("dolphin"))
 
 -- App launcher
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("sh -c 'noctalia msg panel-toggle launcher'"))
@@ -180,6 +176,9 @@ hl.bind(mod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 -- Workspace scroll with mouse wheel
 hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }), { mouse = true })
 hl.bind(mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }), { mouse = true })
+
+-- Workspace movement with 3 finger gesture
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 
 -- Mouse window drag/resize
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
