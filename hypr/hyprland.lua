@@ -6,6 +6,7 @@
 -- ============================================================
 
 hl.env("XCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "Simp1e-Adw-Dark")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "mesa")
@@ -120,7 +121,7 @@ local mod = "SUPER"
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("alacritty"))
 
 -- File manager
-hl.bind(mod .. " + E", hl.dsp.exec_cmd("dolphin"))
+hl.bind(mod .. " + E", hl.dsp.exec_cmd("pcmanfm"))
 
 -- App launcher
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("sh -c 'noctalia msg panel-toggle launcher'"))
