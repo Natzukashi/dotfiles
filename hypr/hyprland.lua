@@ -21,52 +21,52 @@ hl.env("XDG_MENU_PREFIX", "arch-")
 -- ============================================================
 
 hl.config({
-    general = {
-        gaps_in                 = 3,
-        gaps_out                = 7,
-        border_size             = 2,
-        ["col.active_border"]   = "rgba(D282AFff)",
-        ["col.inactive_border"] = "rgba(2d478cff)",
-        layout                  = "dwindle",
-        allow_tearing           = false,
-        resize_on_border        = true,
-    },
+	general = {
+		gaps_in = 3,
+		gaps_out = 7,
+		border_size = 2,
+		["col.active_border"] = "rgba(D282AFff)",
+		["col.inactive_border"] = "rgba(2d478cff)",
+		layout = "dwindle",
+		allow_tearing = false,
+		resize_on_border = true,
+	},
 
-    decoration = {
-        rounding         = 12,
-        active_opacity   = 1.0,
-        inactive_opacity = 1.0,
-        blur             = {
-            enabled = false,
-            size    = 3,
-            passes  = 1,
-        },
-    },
+	decoration = {
+		rounding = 0,
+		active_opacity = 1.0,
+		inactive_opacity = 1.0,
+		blur = {
+			enabled = false,
+			size = 3,
+			passes = 1,
+		},
+	},
 
-    animations = {
-        enabled = true,
-    },
+	animations = {
+		enabled = true,
+	},
 
-    input = {
-        kb_layout          = "us",
-        repeat_delay       = 200,
-        repeat_rate        = 35,
-        numlock_by_default = true,
-        follow_mouse       = 1,
-        sensitivity        = 0.4,
-        touchpad           = {
-            natural_scroll = true,
-        },
-    },
+	input = {
+		kb_layout = "us",
+		repeat_delay = 200,
+		repeat_rate = 35,
+		numlock_by_default = true,
+		follow_mouse = 1,
+		sensitivity = 0.4,
+		touchpad = {
+			natural_scroll = true,
+		},
+	},
 
-    misc = {
-        disable_hyprland_logo   = true,
-        force_default_wallpaper = 0,
-    },
+	misc = {
+		disable_hyprland_logo = true,
+		force_default_wallpaper = 0,
+	},
 
-    dwindle = {
-        preserve_split = true,
-    },
+	dwindle = {
+		preserve_split = true,
+	},
 })
 
 -- ============================================================
@@ -84,8 +84,8 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 1.5, bezier = "easeO
 -- ============================================================
 
 hl.monitor({
-    output = "eDP-1",
-    mode   = "1920x1080@60",
+	output = "eDP-1",
+	mode = "1920x1080@60",
 })
 
 -- ============================================================
@@ -93,13 +93,13 @@ hl.monitor({
 -- ============================================================
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("kbuildsycoca6")
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-    hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-    hl.exec_cmd("noctalia")
-    hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme prefer-dark")
-    hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3")
+	hl.exec_cmd("kbuildsycoca6")
+	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+	hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+	hl.exec_cmd("noctalia")
+	hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme prefer-dark")
+	hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3")
 end)
 
 -- ============================================================
@@ -107,8 +107,8 @@ end)
 -- ============================================================
 
 hl.window_rule({
-    match = { class = "firefox", title = "^Picture-in-Picture$" },
-    float = true,
+	match = { class = "firefox", title = "^Picture-in-Picture$" },
+	float = true,
 })
 
 -- ============================================================
@@ -121,7 +121,7 @@ local mod = "SUPER"
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("alacritty"))
 
 -- File manager
-hl.bind(mod .. " + E", hl.dsp.exec_cmd("pcmanfm"))
+hl.bind(mod .. " + E", hl.dsp.exec_cmd("dolphin"))
 
 -- App launcher
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("sh -c 'noctalia msg panel-toggle launcher'"))
@@ -168,9 +168,9 @@ hl.bind(mod .. " + CTRL + Down", hl.dsp.window.move({ direction = "down" }))
 
 -- Workspaces (focus = switch, window.move = send window)
 for i = 1, 9 do
-    local key = i % 10
-    hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	local key = i % 10
+	hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 hl.bind(mod .. " + 0", hl.dsp.focus({ workspace = 10 }))
 hl.bind(mod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
@@ -187,19 +187,32 @@ hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Screenshots
-hl.bind(mod .. " + SHIFT + S",
-    hl.dsp.exec_cmd("sh -c 'noctalia msg screenshot-region ~/dotfiles/scripts/screenshot.sh output'"))
+hl.bind(
+	mod .. " + SHIFT + S",
+	hl.dsp.exec_cmd("sh -c 'noctalia msg screenshot-region ~/dotfiles/scripts/screenshot.sh output'")
+)
 hl.bind("Print", hl.dsp.exec_cmd("sh -c 'noctalia msg screenshot-fullscreen pick'"))
 
 -- Volume
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("sh -c 'noctalia msg volume-up'"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("sh -c 'noctalia msg volume-down'"), { locked = true, repeating = true })
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd("sh -c 'noctalia msg volume-down'"),
+	{ locked = true, repeating = true }
+)
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("sh -c 'noctalia msg volume-mute'"), { locked = true })
 
 -- Brightness
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-up'"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-down'"),
-    { locked = true, repeating = true })
+hl.bind(
+	"XF86MonBrightnessUp",
+	hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-up'"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86MonBrightnessDown",
+	hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-down'"),
+	{ locked = true, repeating = true }
+)
 
 -- Touchpad & Numlock
 hl.bind("XF86TouchpadOn", hl.dsp.exec_cmd("bash ~/dotfiles/scripts/touchpad.sh on"), { locked = true })

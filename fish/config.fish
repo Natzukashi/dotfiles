@@ -6,4 +6,5 @@ starship init fish | source
 alias lg='lazygit'
 alias install='yay -S --noconfirm --needed'
 alias search='yay --noconfirm --needed'
+alias v='nvim'
 end
