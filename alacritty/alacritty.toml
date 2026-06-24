@@ -6,5 +6,4 @@ normal = { family = "Iosevka Term Nerd Font", style = "Regular" }
 size = 18
 
 [general]
-import = [ "~/.config/alacritty/themes/noctalia.toml",
-]
+import = [ "./tokyonight.toml" ]
