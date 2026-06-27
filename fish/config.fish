@@ -3,8 +3,8 @@ if status is-interactive
 
 starship init fish | source
 
-alias lg='lazygit'
 alias install='yay -S --noconfirm --needed'
+alias zed='zeditor'
 alias search='yay --noconfirm --needed'
-alias v='nvim'
+alias mp='mousepad'
 end

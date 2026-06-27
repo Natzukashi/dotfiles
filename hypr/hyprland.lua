@@ -121,7 +121,7 @@ local mod = "SUPER"
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("alacritty"))
 
 -- File manager
-hl.bind(mod .. " + E", hl.dsp.exec_cmd("dolphin"))
+hl.bind(mod .. " + E", hl.dsp.exec_cmd("pcmanfm"))
 
 -- App launcher
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("sh -c 'noctalia msg panel-toggle launcher'"))
@@ -226,4 +226,4 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 -- For Noctalia Color templates
-require("noctalia")
+require("noctalia").apply_theme()

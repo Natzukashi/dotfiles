@@ -3,8 +3,9 @@ opacity = 0.8
 decorations = 'None'
 
 [font]
-normal = { family = "Iosevka Term Nerd Font", style = "Regular" }
+normal = { family = "IntoneMono Nerd Font", style = "Regular" }
 size = 18
 
 [general]
-import = [ "./tokyonight.toml" ]
+import = [ "~/.config/alacritty/themes/noctalia.toml",
+]
