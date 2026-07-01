@@ -6,5 +6,6 @@ starship init fish | source
 alias install='yay -S --noconfirm --needed'
 alias zed='zeditor'
 alias search='yay --noconfirm --needed'
-alias mp='mousepad'
+alias v='nvim'
+alias lg='lazygit'
 end

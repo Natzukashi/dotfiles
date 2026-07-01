@@ -3,8 +3,11 @@ opacity = 0.8
 decorations = 'None'
 
 [font]
-normal = { family = "IntoneMono Nerd Font", style = "Regular" }
+normal = { family = "Intone Mono Nerd Font", style = "Regular" }
 size = 18
+
+[terminal.shell]
+program = "/usr/bin/fish"
 
 [general]
 import = [ "~/.config/alacritty/themes/noctalia.toml",
