@@ -121,7 +121,7 @@ local mod = "SUPER"
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("alacritty"))
 
 -- File manager
-hl.bind(mod .. " + E", hl.dsp.exec_cmd("dolphin"))
+hl.bind(mod .. " + E", hl.dsp.exec_cmd("pcmanfm"))
 
 -- App launcher
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("sh -c 'noctalia msg panel-toggle launcher'"))
