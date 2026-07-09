@@ -4,7 +4,7 @@ decorations = 'None'
 
 [font]
 normal = { family = "Intone Mono Nerd Font", style = "Regular" }
-size = 18
+size = 16
 
 [terminal.shell]
 program = "/usr/bin/fish"

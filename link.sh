@@ -7,7 +7,6 @@ CONFIG="$HOME/.config"
 declare -A links=(
     ["hypr"]="$CONFIG/hypr"
     ["alacritty"]="$CONFIG/alacritty"
-    ["fastfetch"]="$CONFIG/fastfetch"
     ["fish"]="$CONFIG/fish"
 )
 
