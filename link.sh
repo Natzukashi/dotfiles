@@ -8,6 +8,7 @@ declare -A links=(
     ["hypr"]="$CONFIG/hypr"
     ["alacritty"]="$CONFIG/alacritty"
     ["fish"]="$CONFIG/fish"
+    ["starship.toml"]="$CONFIG/starship.toml"
 )
 
 link() {
