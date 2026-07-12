@@ -15,6 +15,8 @@ hl.env("__NV_PRIME_RENDER_OFFLOAD", "0")
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("ADW_DISABLE_PORTAL", "1")
 hl.env("XDG_MENU_PREFIX", "arch-")
+hl.env("AQ_MGPU_NO_EXPLICIT", "1")
+hl.env("AQ_FORCE_LINEAR_BLIT", "0")
 
 -- ============================================================
 -- CONFIG
@@ -122,7 +124,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("kbuildsycoca6")
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+	--	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 	hl.exec_cmd("noctalia")
 	hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme prefer-dark")
 	hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3")
@@ -147,7 +149,7 @@ local mod = "SUPER"
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("alacritty"))
 
 -- File manager
-hl.bind(mod .. " + E", hl.dsp.exec_cmd("pcmanfm"))
+hl.bind(mod .. " + E", hl.dsp.exec_cmd("dolphin"))
 
 -- App launcher
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("sh -c 'noctalia msg panel-toggle launcher'"))
@@ -177,7 +179,7 @@ hl.bind(mod .. " + N", hl.dsp.exec_cmd("sh -c 'noctalia msg nightlight-enable'")
 hl.bind(mod .. " + Q", hl.dsp.window.close())
 
 -- Fullscreen
-hl.bind("F11", hl.dsp.window.fullscreen())
+hl.bind("SHIFT + F11", hl.dsp.window.fullscreen())
 
 -- Focus movement (hl.dsp.focus, not hl.dsp.window.focus)
 hl.bind(mod .. " + Left", hl.dsp.focus({ direction = "left" }))
