@@ -8,6 +8,7 @@ declare -A links=(
     ["hypr"]="$CONFIG/hypr"
     ["alacritty"]="$CONFIG/alacritty"
     ["zshrc"]="$HOME/.zshrc"
+    ["clang-format"]="$HOME/.clang-format"
 )
 
 link() {
