@@ -4,11 +4,8 @@ padding = {x = 16, y = 10}
 decorations = 'None'
 
 [font]
-normal = { family = "Intone Mono Nerd Font", style = "Regular" }
+normal = { family = "Firacode Nerd Font", style = "Regular" }
 size = 16
-
-[terminal.shell]
-program = "/usr/bin/fish"
 
 [general]
 import = [ "~/.config/alacritty/themes/noctalia.toml",
