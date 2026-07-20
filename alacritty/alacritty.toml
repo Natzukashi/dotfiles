@@ -1,10 +1,11 @@
 [window]
 opacity = 0.8
+blur = true
 padding = {x = 16, y = 10}
 decorations = 'None'
 
 [font]
-normal = { family = "Firacode Nerd Font", style = "Regular" }
+normal = { family = "Maple Mono NF", style = "Regular" }
 size = 16
 
 [general]

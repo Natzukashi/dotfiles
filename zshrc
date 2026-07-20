@@ -6,7 +6,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Aliases
 alias lg='lazygit' 
-alias instal='yay -S --noconfirm --needed' 
+alias get='yay -S --noconfirm --needed' 
 alias search='yay --noconfirm --needed' 
 alias v='nvim'
 

@@ -6,7 +6,7 @@
 -- ============================================================
 
 hl.env("XCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "Simp1e-Adw-Dark")
+hl.env("XCURSOR_THEME", "breeze_cursors")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "mesa")
@@ -139,6 +139,12 @@ hl.window_rule({
 	float = true,
 })
 
+hl.window_rule({
+	match = {
+		title = "^F1 2014$",
+	},
+	fullscreen = true,
+})
 -- ============================================================
 -- BINDS
 -- ============================================================
