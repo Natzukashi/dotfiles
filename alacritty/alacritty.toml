@@ -5,7 +5,7 @@ padding = {x = 16, y = 10}
 decorations = 'None'
 
 [font]
-normal = { family = "FiraCode Nerd Font", style = "Regular" }
+normal = { family = "MapleMono NF", style = "Regular" }
 size = 16
 
 [general]
