@@ -5,10 +5,11 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Aliases
-alias lg='lazygit' 
 alias get='yay -S --noconfirm --needed' 
 alias search='yay --noconfirm --needed' 
 alias v='nvim'
+alias f='fresh'
+alias lg='lazygit'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,

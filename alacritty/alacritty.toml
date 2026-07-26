@@ -1,12 +1,12 @@
 [window]
-opacity = 0.8
+opacity = 0.9
+dynamic_padding = true
 blur = true
-padding = {x = 16, y = 10}
 decorations = 'None'
 
 [font]
-normal = { family = "MapleMono NF", style = "Regular" }
-size = 16
+normal = { family = "IntoneMono Nerd Font", style = "Regular" }
+size = 18
 
 [general]
 import = [ "~/.config/alacritty/themes/noctalia.toml",
