@@ -8,7 +8,6 @@ export ZSH="$HOME/.oh-my-zsh"
 alias get='yay -S --noconfirm --needed' 
 alias search='yay --noconfirm --needed' 
 alias v='nvim'
-alias f='fresh'
 alias lg='lazygit'
 
 # Set name of the theme to load --- if set to "random", it will
