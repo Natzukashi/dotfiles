@@ -7,7 +7,7 @@ CONFIG="$HOME/.config"
 declare -A links=(
     ["hypr"]="$CONFIG/hypr"
     ["alacritty"]="$CONFIG/alacritty"
-    ["zshrc"]="$HOME/.zshrc"
+    ["zsh"]="$CONFIG/zsh"
     ["clang-format"]="$HOME/.clang-format"
 )
 
