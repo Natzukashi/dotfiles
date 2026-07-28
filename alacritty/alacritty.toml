@@ -5,7 +5,7 @@ blur = true
 decorations = 'None'
 
 [font]
-normal = { family = "Mononoki Nerd Font", style = "Regular" }
+normal = { family = "Intone Mono Nerd Font", style = "Regular" }
 size = 18
 
 [general]
