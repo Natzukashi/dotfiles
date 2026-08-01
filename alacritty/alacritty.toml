@@ -1,13 +1,22 @@
 [window]
 opacity = 0.9
-padding = {x = 10, y = 10}
+padding = { x = 10, y = 10 }
+dynamic_padding = false
+decorations = "None"
+resize_increments = true
 blur = true
-decorations = 'None'
 
 [font]
 normal = { family = "Intone Mono Nerd Font", style = "Regular" }
 size = 18
 
+[font.offset]
+x = 0
+y = 12
+
+[font.glyph_offset]
+x = 0
+y = 6
+
 [general]
-import = [ "~/.config/alacritty/themes/noctalia.toml",
-]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
