@@ -6,7 +6,7 @@
 -- ============================================================
 
 hl.env("XCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "Simp1e-Adw-Dark")
+hl.env("XCURSOR_THEME", "Simp1e-Nord-Dark")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "mesa")
@@ -127,7 +127,7 @@ hl.window_rule({
 local mod = "SUPER"
 
 -- Terminal
-hl.bind(mod .. " + Return", hl.dsp.exec_cmd("alacritty"))
+hl.bind(mod .. " + Return", hl.dsp.exec_cmd("ghostty"))
 
 -- File manager
 hl.bind(mod .. " + E", hl.dsp.exec_cmd("thunar"))
