@@ -131,7 +131,7 @@ hl.window_rule({
 local mod = "SUPER"
 
 -- Terminal
-hl.bind(mod .. " + Return", hl.dsp.exec_cmd("ghostty"))
+hl.bind(mod .. " + Return", hl.dsp.exec_cmd("alacritty"))
 
 -- File manager
 hl.bind(mod .. " + E", hl.dsp.exec_cmd("dolphin"))
