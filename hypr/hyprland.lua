@@ -6,7 +6,7 @@
 -- ============================================================
 
 hl.env("XCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "Simp1e-Nord-Dark")
+hl.env("XCURSOR_THEME", "Adwaita")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "mesa")
@@ -92,6 +92,7 @@ hl.animation({ leaf = "border", enabled = true, speed = 2, bezier = "fast" })
 hl.monitor({
 	output = "eDP-1",
 	mode = "1920x1080@60",
+	scale = 1,
 })
 
 -- ============================================================
@@ -216,16 +217,8 @@ hl.bind(
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("sh -c 'noctalia msg volume-mute'"), { locked = true })
 
 -- Brightness
-hl.bind(
-	"XF86MonBrightnessUp",
-	hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-up'"),
-	{ locked = true, repeating = true }
-)
-hl.bind(
-	"XF86MonBrightnessDown",
-	hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-down'"),
-	{ locked = true, repeating = true }
-)
+hl.bind("F2", hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-up'"), { locked = true, repeating = true })
+hl.bind("F3", hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-down'"), { locked = true, repeating = true })
 
 -- Touchpad & Numlock
 hl.bind("XF86TouchpadOn", hl.dsp.exec_cmd("bash ~/dotfiles/scripts/touchpad.sh on"), { locked = true })
