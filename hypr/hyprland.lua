@@ -217,8 +217,8 @@ hl.bind(
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("sh -c 'noctalia msg volume-mute'"), { locked = true })
 
 -- Brightness
-hl.bind("F2", hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-up'"), { locked = true, repeating = true })
-hl.bind("F3", hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-down'"), { locked = true, repeating = true })
+hl.bind("F3", hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-up'"), { locked = true, repeating = true })
+hl.bind("F2", hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-down'"), { locked = true, repeating = true })
 
 -- Touchpad & Numlock
 hl.bind("XF86TouchpadOn", hl.dsp.exec_cmd("bash ~/dotfiles/scripts/touchpad.sh on"), { locked = true })
