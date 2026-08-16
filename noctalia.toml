@@ -1,0 +1,121 @@
+[bar.default]
+auto_hide = true
+end = [ "notifications", "brightness", "network", "bluetooth", "volume", "battery", "session" ]
+font_family = "Adwaita Sans"
+font_weight = 800
+margin_ends = 300
+position = "bottom"
+reserve_space = false
+show_on_workspace_switch = false
+start = [ "workspaces", "tray" ]
+widget_spacing = 20
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@WAYLAND-1", "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1"]
+    box_height = 196.0
+    box_width = 608.0
+    cx = 320.0
+    cy = 178.0
+    output = "WAYLAND-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[osd.kinds]
+dnd = false
+keyboard_backlight = false
+keyboard_layout = false
+lock_keys = false
+media = false
+nightlight = false
+
+[shell]
+font_family = "Adwaita Sans"
+polkit_agent = true
+
+[theme]
+builtin = "Catppuccin"
+mode = "dark"
+source = "builtin"
+
+    [theme.templates]
+    builtin_ids = [ "alacritty", "gtk3", "gtk4", "hyprland", "kcolorscheme", "qt" ]
+
+[wallpaper]
+directory = "/home/dog/dotfiles/Wallpapers"
+
+    [wallpaper.default]
+    path = "/home/dog/dotfiles/Wallpapers/cat_vending_machine.png"
+
+    [wallpaper.last]
+    path = "/home/dog/dotfiles/Wallpapers/cat_vending_machine.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/dog/dotfiles/Wallpapers/cat_vending_machine.png"
