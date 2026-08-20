@@ -7,6 +7,10 @@ decorations = 'None'
 normal = { family = "JetBrains Mono Nerd Font", style = "Regular" }
 size = 14
 
+[cursor]
+blink_interval = 500
+style = {blinking = "always"}
+
 [general]
 import = [ "~/.config/alacritty/themes/noctalia.toml",
 ]
