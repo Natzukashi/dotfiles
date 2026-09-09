@@ -1,4 +1,5 @@
 theme = TokyoNight
+font-family = "CaskaydiaCove Nerd Font Propo"
 font-size = 15
 background-opacity = 0.9
 confirm-close-surface = false
