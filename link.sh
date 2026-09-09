@@ -6,7 +6,7 @@ CONFIG="$HOME/.config"
 # map: source (relative to ~/dotfiles) -> target
 declare -A links=(
     ["hypr"]="$CONFIG/hypr"
-    ["alacritty"]="$CONFIG/alacritty"
+    ["ghostty"]="$CONFIG/ghostty"
     ["zshrc"]="$HOME/.zshrc"
     ["clang-format"]="$HOME/.clang-format"
 )

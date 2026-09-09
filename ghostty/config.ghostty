@@ -1,0 +1,4 @@
+theme = TokyoNight
+font-size = 15
+background-opacity = 0.9
+confirm-close-surface = false

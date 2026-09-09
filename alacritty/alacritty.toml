@@ -12,5 +12,4 @@ blink_interval = 500
 style = {blinking = "always"}
 
 [general]
-import = [ "~/.config/alacritty/themes/noctalia.toml",
 ]

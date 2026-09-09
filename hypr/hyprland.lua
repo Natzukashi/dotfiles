@@ -91,7 +91,7 @@ hl.animation({ leaf = "border", enabled = true, speed = 2, bezier = "fast" })
 
 hl.monitor({
 	output = "eDP-1",
-	mode = "1920x1080@60",
+	mode = "1920x1080@165",
 	scale = 1,
 })
 
@@ -119,12 +119,6 @@ hl.window_rule({
 	float = true,
 })
 
-hl.window_rule({
-	match = {
-		title = "^F1 2014$",
-	},
-	fullscreen = true,
-})
 -- ============================================================
 -- BINDS
 -- ============================================================
@@ -132,7 +126,7 @@ hl.window_rule({
 local mod = "SUPER"
 
 -- Terminal
-hl.bind(mod .. " + Return", hl.dsp.exec_cmd("alacritty"))
+hl.bind(mod .. " + Return", hl.dsp.exec_cmd("ghostty"))
 
 -- File manager
 hl.bind(mod .. " + E", hl.dsp.exec_cmd("dolphin"))
