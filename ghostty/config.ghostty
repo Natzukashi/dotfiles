@@ -1,8 +1,0 @@
-theme = TokyoNight
-font-family = "CaskaydiaCove Nerd Font Propo"
-font-size = 15
-background-opacity = 0.9
-confirm-close-surface = false
-window-padding-x = 10
-window-padding-y = 10
-adjust-cell-height = 20%

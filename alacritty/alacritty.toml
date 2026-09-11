@@ -4,12 +4,10 @@ padding = {x = 10, y = 10}
 decorations = 'None'
 
 [font]
-normal = { family = "JetBrains Mono Nerd Font", style = "Regular" }
+normal = { family = "JetBrains Mono Nerd Font Propo", style = "Regular" }
 size = 14
 
 [cursor]
 blink_interval = 500
 style = {blinking = "always"}
 
-[general]
-]

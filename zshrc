@@ -9,6 +9,7 @@ alias v='nvim'
 alias lg='lazygit'
 alias search='yay --noconfirm --needed'
 alias get='yay -S --noconfirm --needed'
+alias vconf='nvim ~/.config/nvim/'
 
 
 # Set name of the theme to load --- if set to "random", it will
