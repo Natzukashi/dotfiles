@@ -126,10 +126,10 @@ hl.window_rule({
 local mod = "SUPER"
 
 -- Terminal
-hl.bind(mod .. " + Return", hl.dsp.exec_cmd("wezterm"))
+hl.bind(mod .. " + Return", hl.dsp.exec_cmd("kitty"))
 
 -- File manager
-hl.bind(mod .. " + E", hl.dsp.exec_cmd("dolphin"))
+hl.bind(mod .. " + E", hl.dsp.exec_cmd("kitty -e yazi"))
 
 -- App launcher
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("sh -c 'noctalia msg panel-toggle launcher'"))
