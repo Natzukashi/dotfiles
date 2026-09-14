@@ -1,6 +1,3 @@
--- hyprland.lua
--- Place at: ~/.config/hypr/hyprland.lua
-
 -- ============================================================
 -- ENVIRONMENT VARIABLES
 -- ============================================================
@@ -34,20 +31,9 @@ hl.config({
 		resize_on_border = true,
 	},
 
-	decoration = {
-		rounding = 0,
-		active_opacity = 1.0,
-		inactive_opacity = 1.0,
-		blur = {
-			enabled = false,
-			size = 3,
-			passes = 1,
-		},
-	},
+	decoration = { rounding = 0 },
 
-	animations = {
-		enabled = true,
-	},
+	animations = { enabled = true },
 
 	input = {
 		kb_layout = "us",
@@ -61,18 +47,14 @@ hl.config({
 		},
 	},
 
-	cursor = {
-		no_hardware_cursors = true,
-	},
+	cursor = { no_hardware_cursors = true },
 
 	misc = {
 		disable_hyprland_logo = true,
 		force_default_wallpaper = 0,
 	},
 
-	dwindle = {
-		preserve_split = true,
-	},
+	dwindle = { preserve_split = true },
 })
 
 -- ============================================================
@@ -85,6 +67,7 @@ hl.animation({ leaf = "windows", enabled = true, speed = 2, bezier = "fast", sty
 hl.animation({ leaf = "fade", enabled = true, speed = 2, bezier = "fast" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "fast", style = "slide" })
 hl.animation({ leaf = "border", enabled = true, speed = 2, bezier = "fast" })
+
 -- ============================================================
 -- MONITOR
 -- ============================================================
