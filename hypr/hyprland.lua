@@ -126,10 +126,10 @@ hl.window_rule({
 local mod = "SUPER"
 
 -- Terminal
-hl.bind(mod .. " + Return", hl.dsp.exec_cmd("kitty"))
+hl.bind(mod .. " + Return", hl.dsp.exec_cmd("wezterm"))
 
 -- File manager
-hl.bind(mod .. " + E", hl.dsp.exec_cmd("kitty -e yazi"))
+hl.bind(mod .. " + E", hl.dsp.exec_cmd("pcmanfm"))
 
 -- App launcher
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("sh -c 'noctalia msg panel-toggle launcher'"))
@@ -232,8 +232,6 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
-
-
 
 -- For Noctalia Color templates
 require("noctalia").apply_theme()
