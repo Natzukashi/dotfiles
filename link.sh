@@ -5,10 +5,10 @@ CONFIG="$HOME/.config"
 
 # map: source (relative to ~/dotfiles) -> target
 declare -A links=(
-    ["hypr"]="$CONFIG/hypr"
-    ["wezterm"]="$CONFIG/wezterm"
+    # ["hypr"]="$CONFIG/hypr"
+    # ["wezterm"]="$CONFIG/wezterm"
     ["zshrc"]="$HOME/.zshrc"
-    ["clang-format"]="$HOME/.clang-format"
+    # ["clang-format"]="$HOME/.clang-format"
 )
 
 link() {
