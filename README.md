@@ -1,9 +1,6 @@
 >[!NOTE]
-> I have officially given up on linux and am using windows now. I am leaving with a heavy heart, as I loved this piece of software. However, my HP laptop is a massive pain to run on Linux and considering my college needs and circumstances, it's better if I pivot off this route.
-> 
-> Hopefully, this is not a permanent goodbye. I will return once I feel it's possible. Till then, adios.
-> 
-> The repo will not be archived as there is no need.
+> I gave up on native linux and am using WSL. Hence this is the default branch.
+> Please use the `master` branch for native linux desktops.
 
 # My Hyprland Dotfiles for Arch Linux
 
