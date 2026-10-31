@@ -114,6 +114,7 @@ hl.window_rule({
 local mod = "SUPER"
 local terminal = "alacritty"
 local fileManager = "pcmanfm"
+local ipc = "noctalia msg "
 
 -- Terminal
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd(terminal))
@@ -122,22 +123,22 @@ hl.bind(mod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mod .. " + E", hl.dsp.exec_cmd(fileManager))
 
 -- App launcher
-hl.bind(mod .. " + Space", hl.dsp.exec_cmd("sh -c 'noctalia msg panel-toggle launcher'"))
+hl.bind(mod .. " + Space", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
 
 -- Control center
-hl.bind(mod .. " + S", hl.dsp.exec_cmd("sh -c 'noctalia msg panel-toggle control-center'"))
+hl.bind(mod .. " + S", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
 
 -- Settings
-hl.bind(mod .. " + comma", hl.dsp.exec_cmd("sh -c 'noctalia msg settings-toggle'"))
+hl.bind(mod .. " + comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
 
 -- Clipboard
-hl.bind(mod .. " + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
+hl.bind(mod .. " + V", hl.dsp.exec_cmd(ipc .. "panel-toggle clipboard"))
+
+-- Lock screen
+hl.bind(mod .. " + L", hl.dsp.exec_cmd(ipc .. "session lock"))
 
 -- Exit
 hl.bind(mod .. " + SHIFT + M", hl.dsp.exit())
-
--- Lock screen
-hl.bind(mod .. " + L", hl.dsp.exec_cmd("sh -c 'noctalia msg session lock'"))
 
 -- Toggle floating
 hl.bind(mod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
@@ -181,33 +182,18 @@ hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- Screenshots
-hl.bind(
-	mod .. " + SHIFT + S",
-	hl.dsp.exec_cmd("sh -c 'noctalia msg screenshot-region ~/dotfiles/scripts/screenshot.sh output'")
-)
-hl.bind("Print", hl.dsp.exec_cmd("sh -c 'noctalia msg screenshot-fullscreen pick'"))
+-- Screenshot
+hl.bind(mod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
+hl.bind("Print", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen pick"))
 
 -- Volume
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("sh -c 'noctalia msg volume-up'"), { locked = true, repeating = true })
-hl.bind(
-	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd("sh -c 'noctalia msg volume-down'"),
-	{ locked = true, repeating = true }
-)
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("sh -c 'noctalia msg volume-mute'"), { locked = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume-down"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume-mute"), { locked = true })
 
 -- Brightness
-hl.bind(
-	"XF86MonBrightnessUp",
-	hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-up'"),
-	{ locked = true, repeating = true }
-)
-hl.bind(
-	"XF86MonBrightnessDown",
-	hl.dsp.exec_cmd("sh -c 'noctalia msg brightness-down'"),
-	{ locked = true, repeating = true }
-)
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness-up"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"), { locked = true, repeating = true })
 
 -- Touchpad & Numlock
 hl.bind("XF86TouchpadOn", hl.dsp.exec_cmd("bash ~/dotfiles/scripts/touchpad.sh on"), { locked = true })
