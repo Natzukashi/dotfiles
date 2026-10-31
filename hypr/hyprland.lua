@@ -31,7 +31,12 @@ hl.config({
 		resize_on_border = true,
 	},
 
-	decoration = { rounding = 0 },
+	decoration = {
+		rounding = 5,
+		blur = {
+			enabled = false,
+		},
+	},
 
 	animations = { enabled = true },
 
@@ -107,12 +112,14 @@ hl.window_rule({
 -- ============================================================
 
 local mod = "SUPER"
+local terminal = "alacritty"
+local fileManager = "pcmanfm"
 
 -- Terminal
-hl.bind(mod .. " + Return", hl.dsp.exec_cmd("wezterm"))
+hl.bind(mod .. " + Return", hl.dsp.exec_cmd(terminal))
 
 -- File manager
-hl.bind(mod .. " + E", hl.dsp.exec_cmd("pcmanfm"))
+hl.bind(mod .. " + E", hl.dsp.exec_cmd(fileManager))
 
 -- App launcher
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("sh -c 'noctalia msg panel-toggle launcher'"))
@@ -134,9 +141,6 @@ hl.bind(mod .. " + L", hl.dsp.exec_cmd("sh -c 'noctalia msg session lock'"))
 
 -- Toggle floating
 hl.bind(mod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
-
--- Night light
-hl.bind(mod .. " + N", hl.dsp.exec_cmd("sh -c 'noctalia msg nightlight-enable'"))
 
 -- Close window
 hl.bind(mod .. " + Q", hl.dsp.window.close())
