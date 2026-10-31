@@ -8,3 +8,4 @@ alias get='yay -S --noconfirm --needed'
 # ~/.zshrc
 
 eval "$(starship init zsh)"
+PROMPT_EOL_MARK=''
