@@ -112,8 +112,8 @@ hl.window_rule({
 -- ============================================================
 
 local mod = "SUPER"
-local terminal = "alacritty"
-local fileManager = "pcmanfm"
+local terminal = "kitty"
+local fileManager = "dolphin"
 local ipc = "noctalia msg "
 
 -- Terminal
